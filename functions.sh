@@ -126,15 +126,6 @@ pbuild_packages(){
       fi
       cp -a ${PRODUCT_DIR}${TAIL_EDGE}/debian $SOURCE_DIR/
 
-      #if [[ "${product}" =~ 'lsphp' ]] && [[ "${PHP_EXTENSION}" != '' ]]; then
-      #  PHP_VERSION_DOT="${PHP_VERSION_NUMBER:0:1}.${PHP_VERSION_NUMBER:1:1}"
-      #  sed -i -e "s/PHP_VERSION       := 72/PHP_VERSION       := ${PHP_VERSION_NUMBER}/g" "${SOURCE_DIR}/debian/rules"
-      #  sed -i -e "s/PHP_DOT_VERSION   := 7.2/PHP_DOT_VERSION   := ${PHP_VERSION_DOT}/g" "${SOURCE_DIR}/debian/rules"
-      #  PHP_VERSION_DATE='20230831'
-      #  sed -i -e "s/PHP_DATE          := 20170718/PHP_DATE          := ${PHP_VERSION_DATE}/g" ${SOURCE_DIR}/debian/rules
-      #  sed -i -e "s/lsphp72/lsphp${PHP_VERSION_NUMBER}/g" ${SOURCE_DIR}/debian/control
-      #fi
-
       echo " copy changelog template to debian folder "
       cp -af ${PRODUCT_DIR}${TAIL_EDGE}/debian/changelog $SOURCE_DIR/debian/changelog
       echo " now substitute variables in changelog "

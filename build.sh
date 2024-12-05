@@ -23,6 +23,15 @@ set_paras
 set_build_dir
 prepare_source
 pbuild_packages
+echo "##################################################"
+echo " The package building process has finished ! "
+echo "##################################################"
+echo "########### Build Result Content #################"
+
+for dist in $dists; do
+        ls -lR $BUILD_RESULT_DIR/$dist;
+done
+
 echo " ################# End of Result #################"
 echo $(date)
 

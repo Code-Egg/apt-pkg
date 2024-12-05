@@ -42,4 +42,9 @@ sudo apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libfreetype-dev \
-    quilt
+    quilt \
+    pbuilder
+
+wget https://manpages.ubuntu.com/manpages.gz/noble/man1/pdebuild.1.gz
+gzip -d pdebuild.1.gz
+which pdebuild

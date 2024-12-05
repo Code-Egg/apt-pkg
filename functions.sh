@@ -28,10 +28,17 @@ set_paras(){
   fi
   PHP_VERSION_NUMBER=$(echo "${product}" | sed 's/[^0-9]*//g')
   if [[ "$product" =~ 'lsphp' ]] && [[ "${PHP_EXTENSION}" != '' ]] && ! [[ "${PHP_EXTENSION}" =~ 'lsphp' ]] ; then
-    PRODUCT_DIR=build/"${PHP_EXTENSION}"
+    if [[ "${PHP_VERSION_NUMBER}" -lt '56' ]]; then
+      echo "PHP extensions are just for 5.6.0+"
+      exit 1
+    fi
+    PRODUCT_DIR=/root/apt-pkg/build/"${PHP_EXTENSION}"
     BUILD_DIR=$PRODUCT_DIR/"lsphp${PHP_VERSION_NUMBER}-$version-$revision"
+  else
+    PRODUCT_DIR=/root/apt-pkg/build/$product
+    BUILD_DIR=$PRODUCT_DIR/"$version-$revision"
   fi
-   BUILD_RESULT_DIR=$BUILD_DIR/build-result
+  BUILD_RESULT_DIR=$BUILD_DIR/build-result
 }
 
 set_build_dir(){

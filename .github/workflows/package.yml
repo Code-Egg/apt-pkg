@@ -1,7 +1,7 @@
 name: package
 on:
   workflow_dispatch:
-    inputes:
+    inputs:
       distro:
         description: 'distro'
         required: true

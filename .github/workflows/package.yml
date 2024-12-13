@@ -10,10 +10,10 @@ on:
         options:
           - noble
           - jammy
-      tags:
-        description: 'Purpose of Run This Workflow?'
+      revision:
+        description: 'revision number'
         required: true
-        type: string
+        type: number
 
 jobs:
   package:
@@ -24,4 +24,4 @@ jobs:
         run: | 
           sudo ls -al
           pwd
-          bash build.sh lsphp83 8.3.13 11 ${{ inputs.tags }} amd64
+          bash build.sh lsphp83 8.3.13 ${{ inputs.revision }} ${{ inputs.distro }} amd64

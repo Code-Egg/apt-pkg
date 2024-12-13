@@ -1,10 +1,10 @@
 name: package
 on:
-  workflow_call:
+  workflow_dispatch:
     inputes:
       build_revision:
         required: true
-        type: number
+        type: string
       deploy_distro:
         required: true
         type: string

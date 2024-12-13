@@ -1,15 +1,22 @@
 name: package
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'distro'
+        required: true
+        default: 'jammy'
+  #push:
+  #  branches:
+  #    - main
 
 jobs:
   package:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      - name: env setup
+      - name: setup
         run: | 
           sudo ls -al
           pwd
+          bash build.sh lsphp83 8.3.13 11 ${{ github.event.inputs.environment }}" amd64

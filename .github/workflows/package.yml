@@ -11,7 +11,7 @@ on:
           - noble
           - jammy
       tags:
-        description: 'distro'
+        description: 'Purpose of Run This Workflow?'
         required: true
         type: string
 
@@ -24,4 +24,4 @@ jobs:
         run: | 
           sudo ls -al
           pwd
-          bash build.sh lsphp83 8.3.13 ${{ inputs.tags }} ${{ inputs.distro }} amd64
+          bash build.sh lsphp83 8.3.13 11 ${{ inputs.tags }} amd64

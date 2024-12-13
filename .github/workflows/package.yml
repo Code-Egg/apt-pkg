@@ -5,9 +5,14 @@ on:
       build_revision:
         required: true
         type: string
-      deploy_distro:
+      distro:
+        description: 'distro'
         required: true
-        type: string
+        default: 'noble'
+        type: choice
+        options:
+          - noble
+          - jammy
 
 jobs:
   package:
@@ -18,4 +23,4 @@ jobs:
         run: | 
           sudo ls -al
           pwd
-          bash build.sh lsphp83 8.3.13 ${{ github.event.inputs.build_revision }} ${{ github.event.inputs.build_distro }} amd64
+          bash build.sh lsphp83 8.3.13 ${{ inputs.build_revision }} ${{ inputs.distro }} amd64

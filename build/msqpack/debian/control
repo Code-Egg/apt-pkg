@@ -1,0 +1,19 @@
+Source: lsphp72-msgpack
+Section: php
+Priority: optional
+Maintainer: lsadm <info@litespeedtech.com>
+Uploaders: lsadm <info@litespeedtech.com>
+Build-Depends: debhelper (>= 9),
+               lsphp72-dev
+Standards-Version: 3.9.8
+Homepage: http://pecl.php.net/package/msgpack
+
+Package: lsphp72-msgpack
+Architecture: any
+Depends: lsphp72-common,
+         ${misc:Depends},
+         ${php:Depends},
+         ${shlibs:Depends}
+Provides: ${php:Provides}
+Description: PHP extension for interfacing with MessagePack
+ This extension provide API for communicating with MessagePack serialization.

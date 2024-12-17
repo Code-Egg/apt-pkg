@@ -1,0 +1,22 @@
+Source: lsphp72-pear
+Section: php
+Priority: optional
+Maintainer: lsadm <info@litespeedtech.com>
+Uploaders: lsadm <info@litespeedtech.com>
+Build-Depends: debhelper (>= 9),
+	             lsphp72
+Standards-Version: 3.9.8
+
+Package: lsphp72-pear
+Architecture: all
+Depends: ${misc:Depends},
+         ${phppear:Debian-Depends},
+         lsphp72,
+         lsphp72-dev
+Recommends: ${phppear:Debian-Recommends}
+Provides: lsphp72-console-getopt,
+          lsphp72-structures-graph,
+          lsphp72-xml-util
+Breaks: ${phppear:Debian-Breaks}
+Description: Provides PHP PEAR package
+ PEAR is a framework and distribution system for reusable PHP components.

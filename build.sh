@@ -23,11 +23,11 @@ lsapi_version=8.1
 #fi
 
 if [ $input_archs = "ALL" ]; then
-        echo " convert archs value "
-        archs="amd64 arm64"
-        echo " the new value for archs is $archs "
+    echo " convert archs value "
+    archs="amd64 arm64"
+    echo " the new value for archs is $archs "
 else
-        archs=$input_archs
+    archs=$input_archs
 fi
 
 check_input
@@ -41,7 +41,7 @@ echo "##################################################"
 echo "########### Build Result Content #################"
 
 for dist in $dists; do
-        ls -lR $BUILD_RESULT_DIR/$dist;
+    ls -lR $BUILD_RESULT_DIR/$dist;
 done
 
 echo " ################# End of Result #################"

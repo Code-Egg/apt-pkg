@@ -197,9 +197,7 @@ pbuild_packages(){
           fi
           # Autoswitch the php info for php extensions before compiling
           if [[ "${product}" =~ 'lsphp' ]] && [[ "${PHP_EXTENSION}" != '' ]]; then
-              PHP_VERSION_DOT="${PHP_VERSION_NUMBER:0:1}.${PHP_VERSION_NUMBER:1:1}"
-              sed -i -e "s/PHP_VERSION       := 72/PHP_VERSION       := ${PHP_VERSION_NUMBER}/g" "${SOURCE_DIR}/debian/rules"
-              sed -i -e "s/PHP_DOT_VERSION   := 7.2/PHP_DOT_VERSION   := ${PHP_VERSION_DOT}/g" "${SOURCE_DIR}/debian/rules"              
+              PHP_VERSION_DOT="${PHP_VERSION_NUMBER:0:1}.${PHP_VERSION_NUMBER:1:1}"         
               if [[ "${PHP_VERSION_NUMBER}" == '74' ]]; then
                   PHP_VERSION_DATE='20190902'
               elif [[ "${PHP_VERSION_NUMBER}" == '80' ]]; then

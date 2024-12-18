@@ -1,17 +1,17 @@
-Source: lsphp72-redis
+Source: lsphp83-redis
 Section: php
 Priority: optional
-Maintainer: lsadm <info@litespeedtech.com>
-Uploaders: lsadm <info@litespeedtech.com>
+Maintainer: litespeed <info@litespeedtech.com>
+Uploaders: litespeed <info@litespeedtech.com>
 Build-Depends: debhelper (>= 9),
-               lsphp72-dev,
-               lsphp72-igbinary
+               lsphp83-dev,
+               lsphp83-igbinary
 Standards-Version: 3.9.8
 
-Package: lsphp72-redis
+Package: lsphp83-redis
 Architecture: any
-Depends: lsphp72-igbinary,
-         lsphp72-common,
+Depends: lsphp83-igbinary,
+         lsphp83-common,
          ${misc:Depends},
          ${php:Depends},
          ${shlibs:Depends}

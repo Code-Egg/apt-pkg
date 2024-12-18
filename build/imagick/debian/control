@@ -1,14 +1,14 @@
-Source: lsphp72-imagick
+Source: lsphp83-imagick
 Section: php
 Priority: optional
-Maintainer: lsadm <info@litespeedtech.com>
-Uploaders: lsadm <info@litespeedtech.com>
+Maintainer: litespeed <info@litespeedtech.com>
+Uploaders: litespeed <info@litespeedtech.com>
 Build-Depends: debhelper (>= 9),
                libmagickwand-6.q16-dev | libmagickwand-dev,
-               lsphp72-dev
+               lsphp83-dev
 Standards-Version: 3.9.8
 
-Package: lsphp72-imagick
+Package: lsphp83-imagick
 Architecture: any
 Depends: ${misc:Depends},
          ${php:Depends},

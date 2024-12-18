@@ -1,17 +1,17 @@
-Source: lsphp72-ioncube
+Source: lsphp83-ioncube
 Section: php
 Priority: optional
-Maintainer: lsadm <info@litespeedtech.com>
-Uploaders: lsadm <info@litespeedtech.com>
+Maintainer: litespeed <info@litespeedtech.com>
+Uploaders: litespeed <info@litespeedtech.com>
 Build-Depends: debhelper (>= 9),
-               lsphp72-dev,
-               lsphp72
+               lsphp83-dev,
+               lsphp83
 Standards-Version: 3.9.8
 Homepage: https://www.ioncube.com/loaders.php
 
-Package: lsphp72-ioncube
+Package: lsphp83-ioncube
 Architecture: any
-Depends: lsphp72-common,
+Depends: lsphp83-common,
          ${misc:Depends},
          ${php:Depends},
          ${shlibs:Depends}

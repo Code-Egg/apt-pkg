@@ -1,26 +1,26 @@
-Source: lsphp72-apcu
+Source: lsphp83-apcu
 Section: php
 Priority: optional
-Maintainer: lsadm <info@litespeedtech.com>
-Uploaders: lsadm <info@litespeedtech.com>
+Maintainer: litespeed <info@litespeedtech.com>
+Uploaders: litespeed <info@litespeedtech.com>
 Build-Depends: debhelper (>= 9),
                libpcre3-dev,
-               lsphp72-dev
+               lsphp83-dev
 Standards-Version: 3.9.8
 Homepage: https://pecl.php.net/package/APCu
 
-Package: lsphp72-apcu
+Package: lsphp83-apcu
 Architecture: any
-Depends: lsphp72-common,
+Depends: lsphp83-common,
          ${misc:Depends},
          ${php:Depends},
          ${shlibs:Depends}
-Suggests: lsphp72-gd
-Conflicts: lsphp72-user-cache,
-           lsphp72-xcache,
-           lsphp72-yac
-Replaces: lsphp72-user-cache
-Provides: lsphp72-user-cache,
+Suggests: lsphp83-gd
+Conflicts: lsphp83-user-cache,
+           lsphp83-xcache,
+           lsphp83-yac
+Replaces: lsphp83-user-cache
+Provides: lsphp83-user-cache,
           ${php:Provides}
 Recommends: ${misc:Recommends}
 Description: APC User Cache for PHP

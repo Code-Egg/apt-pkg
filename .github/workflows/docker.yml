@@ -58,7 +58,7 @@ jobs:
           ls -al
           pwd
           ls -al /root/
-          ls -al /github/home/
           env
+          cp /root/.pbuilderrc $HOME/
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}
           

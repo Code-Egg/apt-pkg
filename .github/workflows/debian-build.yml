@@ -53,12 +53,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        #working-directory: /root/
         run: |
           ls -al
           pwd
-          ls -al /root/
-          env
           cp /root/.pbuilderrc $HOME/
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}
           

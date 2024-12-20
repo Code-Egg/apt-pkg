@@ -45,12 +45,14 @@ on:
           - arm64
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     container:
       image: eggcold/debian-build
       options: --user root --cap-add SYS_ADMIN --security-opt seccomp=unconfined --security-opt apparmor=unconfined
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3 
       - uses: actions/checkout@v2
       - name: build
         run: |

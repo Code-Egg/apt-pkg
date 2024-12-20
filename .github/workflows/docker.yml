@@ -46,7 +46,9 @@ on:
 
 jobs:
   test:
-    runs-on: eggcold/debian-build
+    runs-on: ubuntu-latest
+    container:
+      image: eggcold/debian-build
     steps:
       - uses: actions/checkout@v2
       - name: build

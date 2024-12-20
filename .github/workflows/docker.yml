@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build
-        working-directory: /root/
+        #working-directory: /root/
         run: |
           ls -al
           pwd

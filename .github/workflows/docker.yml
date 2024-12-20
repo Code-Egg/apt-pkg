@@ -57,5 +57,8 @@ jobs:
         run: |
           ls -al
           pwd
+          ls -al /root/
+          ls -al /github/home/
+          env
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}
           

@@ -47,8 +47,6 @@ on:
 jobs:
   test:
     runs-on: eggcold/debian-build
-    strategy:
-        TAG: [latest,'']
     steps:
       - uses: actions/checkout@v2
       - name: build

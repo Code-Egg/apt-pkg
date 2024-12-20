@@ -2,6 +2,7 @@
 #set -x
 #set -v
 #source ~/.bashrc
+cur_path=$(pwd)
 
 check_input(){
     echo " ###########   Check_input  ############# "
@@ -29,10 +30,12 @@ set_paras(){
             echo "PHP extensions are just for 7.4+"
             exit 1
         fi
-        PRODUCT_DIR=/root/apt-pkg/build/"${PHP_EXTENSION}"
+        PRODUCT_DIR=${cur_path}/build/"${PHP_EXTENSION}"
+        #PRODUCT_DIR=/root/apt-pkg/build/"${PHP_EXTENSION}"
         BUILD_DIR=$PRODUCT_DIR/"lsphp${PHP_VERSION_NUMBER}-$version-$revision"
     else
-        PRODUCT_DIR=/root/apt-pkg/build/$product
+        PRODUCT_DIR=${cur_path}/build/$product
+        #PRODUCT_DIR=/root/apt-pkg/build/$product
         BUILD_DIR=$PRODUCT_DIR/"$version-$revision"
     fi
     BUILD_RESULT_DIR=$BUILD_DIR/build-result

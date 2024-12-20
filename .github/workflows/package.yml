@@ -50,6 +50,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: setup
         run: | 
-          sudo ls -al
           pwd
+          ls -al
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}

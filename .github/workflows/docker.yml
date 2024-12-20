@@ -49,10 +49,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: eggcold/debian-build
+      options: --user root --cap-add SYS_ADMIN --security-opt seccomp=unconfined --security-opt apparmor=unconfined
     steps:
       - uses: actions/checkout@v2
       - name: build
-        run: | 
-          sudo ls -al
+        working-directory: /root/
+        run: |
+          ls -al
           pwd
-          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}  
+          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}
+          

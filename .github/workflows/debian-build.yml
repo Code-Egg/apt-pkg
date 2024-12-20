@@ -1,4 +1,4 @@
-name: docker-build
+name: debian-build
 
 on:
   workflow_dispatch:

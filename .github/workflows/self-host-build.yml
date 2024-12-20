@@ -1,4 +1,4 @@
-name: package
+name: self-host-build
 on:
   workflow_dispatch:
     inputs:

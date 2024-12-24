@@ -46,10 +46,14 @@ on:
 jobs:
   package:
     runs-on: self-hosted
+    container:
+      image: eggcold/debian-build
+      options: --user root --cap-add SYS_ADMIN --security-opt seccomp=unconfined --security-opt apparmor=unconfined
     steps:
       - uses: actions/checkout@v2
-      - name: setup
-        run: | 
-          pwd
+      - name: build
+        run: |
           ls -al
+          pwd
+          cp /root/.pbuilderrc $HOME/
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}

@@ -13,7 +13,10 @@ The easiest way to get up and running with PHP is to use the LiteSpeed Repositor
 [Document Link](https://docs.litespeedtech.com/lsws/extapp/php/getting_started/)
 
 ### Building PHP from source code
-
+Clone the repository, and run the build script to build the package. 
+```
+bash build.sh lsphp83 8.3.13 1 noble amd64
+```
 
 
 ## Support, Feedback, and Collaboration

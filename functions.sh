@@ -231,3 +231,16 @@ pbuild_packages(){
         done
     done
 }
+
+sign_packages(){
+    echo 'Sign package deb files'
+    cd $BUILD_DIR/build-result
+    for dist in `echo $dists`; do
+        cd $BUILD_DIR/build-result/${dist}
+        for pkg in `ls | grep deb$`; do
+            echo " signing the package: $pkg"
+            debsigs --sign=origin --default-key=xxxxxxxx $pkg
+            #dpkg-sig -k xxxxxxxx --sign builder $pkg
+        done
+    done
+}        

@@ -43,6 +43,15 @@ on:
         options:
           - amd64
           - arm64
+      build_flag:
+        description: 'dry-run or sign-key&push'
+        required: true
+        default: 'dry-run'
+        type: choice
+        options:
+          - dry-run
+          - push
+
 
 jobs:
   build:

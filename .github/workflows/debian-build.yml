@@ -65,6 +65,7 @@ jobs:
       - name: Import GPG
         run: |
           gpg --version
+          apt install debsigs -y
           echo "GPG_PASSWD: $GPG_PASSWD"
           echo "$GPG_PUBKEY" | gpg --import
         env: 

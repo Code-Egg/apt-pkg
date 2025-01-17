@@ -68,6 +68,8 @@ jobs:
           apt install debsigs -y
           echo "GPG_PASSWD: $GPG_PASSWD"
           echo "$GPG_PUBKEY" | gpg --import
+          echo "$GPG_PUBKEY" | gpg --import
+          gpg --list-keys
         env: 
           GPG_PUBKEY: ${{ secrets.TEST2PUBLIC }}
           GPG_PRIKEY: ${{ secrets.TEST2PRIVATE }}

@@ -63,7 +63,8 @@ jobs:
     steps:
       - name: Import GPG
         run: |
-          echo -e "$GPG_PUBKEY" | gpg --import
+          echo "$GPG_PUBKEY" | gpg --import
+          env
         env: 
           GPG_PUBKEY: ${{ secrets.TEST2PUBLIC }}
           GPG_PRIKEY: ${{ secrets.TEST2PRIVATE }}

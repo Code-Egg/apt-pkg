@@ -61,17 +61,15 @@ jobs:
       options: --user root --cap-add SYS_ADMIN --security-opt seccomp=unconfined --security-opt apparmor=unconfined
 
     steps:
+      - uses: actions/checkout@v2
       - name: Import GPG
         run: |
           gpg --version
-          apt-get update
-          apt-get install ca-certificates -y
           echo "$GPG_PUBKEY" | gpg --import
         env: 
           GPG_PUBKEY: ${{ secrets.TEST2PUBLIC }}
           GPG_PRIKEY: ${{ secrets.TEST2PRIVATE }}
           GPG_PASSWD: ${{ secrets.TEST2PASSWORD }}     
-      - uses: actions/checkout@v2
       - name: build
         run: |
           ls -al

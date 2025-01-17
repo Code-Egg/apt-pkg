@@ -63,8 +63,10 @@ jobs:
     steps:
       - name: Import GPG
         run: |
+          gpg --version
+          apt-get update
+          apt-get install ca-certificates -y
           echo "$GPG_PUBKEY" | gpg --import
-          env
         env: 
           GPG_PUBKEY: ${{ secrets.TEST2PUBLIC }}
           GPG_PRIKEY: ${{ secrets.TEST2PRIVATE }}

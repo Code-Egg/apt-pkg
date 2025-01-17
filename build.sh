@@ -53,7 +53,7 @@ if [ ${?} != 0 ] ; then
     exit 1
 fi
 
-if [ $push_flag == 'push' ]; then
+if [ $build_flag == 'push' ]; then
         sign_packages
         #push
 fi

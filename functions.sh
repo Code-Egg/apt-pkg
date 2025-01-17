@@ -239,7 +239,9 @@ sign_packages(){
         cd $BUILD_DIR/build-result/${dist}
         for pkg in `ls | grep deb$`; do
             echo " signing the package: $pkg"
-            debsigs --sign=origin --default-key=xxxxxxxx $pkg
+            ###For Ubuntu 24+ and Debian 12+
+            debsigs --sign=origin --default-key=85CFC7E0 $pkg
+            ###Support for older systems
             #dpkg-sig -k xxxxxxxx --sign builder $pkg
         done
     done

@@ -67,10 +67,9 @@ jobs:
           pwd
           uname -m
           echo "HOME: $HOME"
-          cat /root/.pbuilderrc
-          cp /root/.pbuilderrc $HOME/
+          cp .pbuilderrc $HOME/
+          chmod +x $HOME/.pbuilderrc
           echo "ls $HOME"
           ls $HOME
-          echo "ls /usr/share/doc/pbuilder/examples/test"
-          ls /usr/share/doc/pbuilder/examples/test
+          cat $HOME/.pbuilderrc
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

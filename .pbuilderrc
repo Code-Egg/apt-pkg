@@ -5,7 +5,7 @@
 #export http_proxy=http://localhost:8000/
 
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/:$LD_LIBRARY_PATH
-HOOKDIR=$HOME
+HOOKDIR=/github/home
 # Codenames for Debian suites according to their alias. Update these when needed.
 UNSTABLE_CODENAME="trixie"
 TESTING_CODENAME="bookworm"

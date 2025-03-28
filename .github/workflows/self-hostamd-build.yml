@@ -67,4 +67,4 @@ jobs:
           pwd
           uname -m
           cp /root/.pbuilderrc $HOME/
-          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }}
+          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

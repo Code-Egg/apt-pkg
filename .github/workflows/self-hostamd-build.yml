@@ -66,5 +66,7 @@ jobs:
           ls -al
           pwd
           uname -m
+          echo "HOME: $HOME"
+          cat /root/.pbuilderrc
           cp /root/.pbuilderrc $HOME/
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

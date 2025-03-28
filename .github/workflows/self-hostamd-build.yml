@@ -69,4 +69,8 @@ jobs:
           echo "HOME: $HOME"
           cat /root/.pbuilderrc
           cp /root/.pbuilderrc $HOME/
+          echo "ls $HOME"
+          ls $HOME
+          echo "ls /usr/share/doc/pbuilder/examples/test"
+          ls /usr/share/doc/pbuilder/examples/test
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

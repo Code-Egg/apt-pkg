@@ -68,7 +68,8 @@ jobs:
           uname -m
           echo "HOME: $HOME"
           cp .pbuilderrc $HOME/
-          chmod +x $HOME/.pbuilderrc
+          cp B92test-pkg $HOME/
+          chmod +x $HOME/B92test-pkg
           echo "ls $HOME"
           ls -al $HOME
           echo 'DEBU'

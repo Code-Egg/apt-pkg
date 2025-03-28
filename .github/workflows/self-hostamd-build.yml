@@ -67,7 +67,7 @@ jobs:
           pwd
           uname -m
           echo "HOME: $HOME"
-          cp .pbuilderrc $HOME/
+          #cp .pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
           echo "ls $HOME"
@@ -75,7 +75,7 @@ jobs:
           echo 'ls ~'
           ls -al ~
           echo 'DEBU'
-          cat $HOME/.pbuilderrc
+          #cat $HOME/.pbuilderrc
           echo 'DEBU2'
           cat $HOME/B92test-pkg
           echo 'DEBU3'

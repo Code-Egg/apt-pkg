@@ -70,6 +70,8 @@ jobs:
           cp .pbuilderrc $HOME/
           chmod +x $HOME/.pbuilderrc
           echo "ls $HOME"
-          ls $HOME
+          ls -al $HOME
+          echo 'DEBU'
           cat $HOME/.pbuilderrc
+          echo 'DEBU2'
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

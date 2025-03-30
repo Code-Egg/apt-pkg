@@ -67,3 +67,6 @@ jobs:
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}
+          ls /__w/apt-pkg/apt-pkg/build/apcu/lsphp83-5.1.23-1/build-result/noble/
+          ls /home
+          cp /__w/apt-pkg/apt-pkg/build/apcu/lsphp83-5.1.23-1/build-result/noble/* /home/

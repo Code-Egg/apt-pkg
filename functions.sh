@@ -236,7 +236,7 @@ upload_to_local(){
     cd $BUILD_DIR/build-result
     echo "Upload deb files to local"
     for dist in `echo $dists`; do
-        cp --update=none $BUILD_DIR/build-result/${dist}/*.deb /home/runner/results/debian/pool/main/${dist}/.
+        cp --update=none $BUILD_DIR/build-result/${dist}/*.deb /home/runner/results/debian/pool/main/${dist}/
     done
     echo "End of uploading files to local"
 }

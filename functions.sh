@@ -239,7 +239,7 @@ upload_to_local(){
     echo 'D1'
         ls /home/runner/results/debian/pool/main/
         echo 'D2'
-        ls /home/
+        ls /home/ubuntu/
         #cp --update=none $BUILD_DIR/build-result/${dist}/*.deb /home/runner/results/debian/pool/main/${dist}/
     done
     echo "End of uploading files to local"

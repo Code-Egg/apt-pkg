@@ -80,3 +80,8 @@ jobs:
           pwd
           cp /root/.pbuilderrc $HOME/
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}
+          docker ps 
+          echo '/__w/apt-pkg/apt-pkg/build/apcu/lsphp83-5.1.23-1/build-result/noble'
+          ls -l /__w/apt-pkg/apt-pkg/build/apcu/lsphp83-5.1.23-1/build-result/noble
+          echo '/home/runner/results/debian/pool/main/'
+          ls /home/runner/results/debian/pool/main/          

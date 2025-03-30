@@ -66,5 +66,4 @@ jobs:
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          #cat $HOME/.pbuilderrc
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

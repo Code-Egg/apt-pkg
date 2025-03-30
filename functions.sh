@@ -231,6 +231,16 @@ pbuild_packages(){
     done
 }
 
+upload_to_local(){
+    # only load deb files to the local server
+    cd $BUILD_DIR/build-result
+    echo "Upload deb files to local"
+    for dist in `echo $dists`; do
+        rsync --ignore-existing -av $BUILD_DIR/build-result/${dist}/*.deb /home/runner/results/debian/pool/main/${dist}/.
+    done
+    echo "End of uploading files to local"
+}
+
 sign_packages(){
     echo 'Sign package deb files'
     cd $BUILD_DIR/build-result

@@ -51,8 +51,8 @@ ls -lR $BUILD_RESULT_DIR/$dist | grep ${product}_${version}-${revision}+${dists}
 if [ ${?} != 0 ] ; then
     echo "${product}_${version}-${revision}+${dists}_.*.deb is not found!"
     exit 1
-else
-    upload_to_local
+#else
+    #upload_to_local
 fi
 
 if [ $build_flag == 'push' ]; then

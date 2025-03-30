@@ -63,20 +63,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: build
         run: |
-          ls -al
-          pwd
-          uname -m
-          echo "HOME: $HOME"
-          #cp .pbuilderrc $HOME/
+          cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          echo "ls $HOME"
-          ls -al $HOME
-          echo 'ls ~'
-          ls -al ~
-          echo 'DEBU'
           #cat $HOME/.pbuilderrc
-          echo 'DEBU2'
-          cat $HOME/B92test-pkg
-          echo 'DEBU3'
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}

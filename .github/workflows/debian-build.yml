@@ -80,4 +80,3 @@ jobs:
           pwd
           cp /root/.pbuilderrc $HOME/
           bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}
-          cp /__w/apt-pkg/apt-pkg/build/apcu/lsphp83-5.1.23-1/build-result/noble/* /home/

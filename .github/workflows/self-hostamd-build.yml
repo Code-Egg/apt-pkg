@@ -10,7 +10,6 @@ on:
         type: choice
         options:
           - lsphp83
-          - lsphp83-common
           - lsphp83-apcu
           - lsphp83-imagick
           - lsphp83-ioncube

@@ -45,13 +45,14 @@ on:
           - amd64
           - arm64
       build_flag:
-        description: 'dry-run or sign-key&push'
+        description: 'Edge, Dev, or Production'
         required: true
-        default: 'dry-run'
+        default: 'Dev'
         type: choice
         options:
-          - dry-run
-          - push
+          - Dev
+          - Edge
+          - Production
 
 
 jobs:

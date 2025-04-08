@@ -15,6 +15,7 @@ revision=$3
 dists=$4
 input_archs=$5
 build_flag=$6
+edge_flag=$7
 lsapi_version=8.1
 #if [ $dists = "ALL" ]; then
 #        echo " convert dists value "
@@ -51,11 +52,11 @@ ls -lR $BUILD_RESULT_DIR/$dist | grep ${product}_${version}-${revision}+${dists}
 if [ ${?} != 0 ] ; then
     echo "${product}_${version}-${revision}+${dists}_.*.deb is not found!"
     exit 1
-#else
-    #upload_to_local
+else
+    upload_to_server
 fi
 
-if [ $build_flag == 'push' ]; then
-        sign_packages
-        #push
-fi
+#if [ $build_flag == 'push' ]; then
+#        sign_packages
+        ##push
+#fi

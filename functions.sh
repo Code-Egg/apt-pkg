@@ -3,6 +3,7 @@
 #set -v
 #source ~/.bashrc
 cur_path=$(pwd)
+target_server='rpms.litespeedtech.club'
 
 check_input(){
     echo " ###########   Check_input  ############# "
@@ -255,4 +256,12 @@ sign_packages(){
             #dpkg-sig -k xxxxxxxx --sign builder $pkg
         done
     done
-}        
+}
+
+upload_to_server(){
+    for dist in `echo $dists`; do
+        echo " now uploading for distribution ${dist} "
+        scp $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/repo/pool/main/${dist}/
+    done
+    ssh root@${target_server}
+}    

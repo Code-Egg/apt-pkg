@@ -251,6 +251,6 @@ upload_to_server(){
     cd $BUILD_DIR/build-result
     for dist in `echo $dists`; do
         echo " now uploading for distribution ${dist} "
-        scp $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/repo/pool/main/${dist}/
+        scp $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/
     done
 }    

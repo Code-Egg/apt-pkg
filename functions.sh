@@ -232,17 +232,6 @@ pbuild_packages(){
     done
 }
 
-upload_to_local(){
-    # only load deb files to the local server
-    cd $BUILD_DIR/build-result
-    echo "Upload deb files to local"
-    for dist in `echo $dists`; do
-        echo 'test'
-        #cp --update=none $BUILD_DIR/build-result/${dist}/*.deb /home/runner/results/debian/pool/main/${dist}/
-    done
-    echo "End of uploading files to local"
-}
-
 sign_packages(){
     echo 'Sign package deb files'
     cd $BUILD_DIR/build-result
@@ -251,7 +240,7 @@ sign_packages(){
         for pkg in `ls | grep deb$`; do
             echo " signing the package: $pkg"
             ###For Ubuntu 24+ and Debian 12+
-            debsigs --sign=origin --default-key=85CFC7E0 $pkg
+            debsigs --sign=origin --default-key=12345678 $pkg
             ###Support for older systems
             #dpkg-sig -k xxxxxxxx --sign builder $pkg
         done
@@ -259,9 +248,9 @@ sign_packages(){
 }
 
 upload_to_server(){
+    cd $BUILD_DIR/build-result
     for dist in `echo $dists`; do
         echo " now uploading for distribution ${dist} "
         scp $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/repo/pool/main/${dist}/
     done
-    ssh root@${target_server}
 }    

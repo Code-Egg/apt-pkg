@@ -255,6 +255,6 @@ upload_to_server(){
         ls /root/.ssh/
         cd /root/.ssh/
         whoami
-        #scp $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/
+        scp -i /root/.ssh/id_ed25519 $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/
     done
 }    

@@ -253,6 +253,6 @@ upload_to_server(){
         echo " now uploading for distribution ${dist} "
         eval `ssh-agent -s`
         echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
-        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/
+        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/ >/dev/null 2>&1
     done
 }    

@@ -252,6 +252,7 @@ upload_to_server(){
     for dist in `echo $dists`; do
         echo " now uploading for distribution ${dist} "
         eval `ssh-agent -s`
+        echo "{BUILD_KEY}" | ssh-add -
         scp $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/
     done
 }    

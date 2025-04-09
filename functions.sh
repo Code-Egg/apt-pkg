@@ -12,12 +12,7 @@ check_input(){
     echo " Build revision is $revision "
     echo " Required archs are $archs "
     echo " Required dists are $dists "
-
-    if [ $build_flag == build ] ; then
-        echo " The packages will be built "
-    else
-        echo " The packages will NOT be built "
-    fi
+    echo " Build location is $build_flag"
 }
 
 set_paras(){

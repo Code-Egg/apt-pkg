@@ -249,10 +249,15 @@ sign_packages(){
 
 upload_to_server(){
     cd $BUILD_DIR/build-result
+    if [[ "${build_flag}" = 'dev' ]] ; then
+        REP_LOC='/var/www/html-dev'
+    else
+        REP_LOC='/var/www/html'
+    fi    
     for dist in `echo $dists`; do
         echo " now uploading for distribution ${dist} "
         eval `ssh-agent -s`
         echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
-        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:/var/www/html/debian/pool/main/${dist}/ >/dev/null 2>&1
+        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ >/dev/null 2>&1
     done
 }    

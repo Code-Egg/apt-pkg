@@ -43,17 +43,15 @@ on:
         type: choice
         options:
           - amd64
-          - arm64
+          #- arm64
       build_flag:
-        description: 'Edge, Dev, or Production'
+        description: 'development, or production'
         required: true
-        default: 'Dev'
+        default: 'dev'
         type: choice
         options:
-          - Dev
-          - Edge
-          - Production
-
+          - dev
+          - prod
 
 jobs:
   package:

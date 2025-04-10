@@ -52,6 +52,15 @@ on:
         options:
           - dev
           - prod
+      sign_flag:
+        description: 'yes, or no'
+        required: true
+        default: 'yes'
+        type: choice
+        options:
+          - yes
+          - no
+
 
 jobs:
   package:

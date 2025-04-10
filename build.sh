@@ -55,7 +55,6 @@ else
     upload_to_server
 fi
 
-#if [ $build_flag == 'push' ]; then
-#        sign_packages
-        ##push
-#fi
+if [ $sign_flag == 'yes' ]; then
+        sign_release
+fi

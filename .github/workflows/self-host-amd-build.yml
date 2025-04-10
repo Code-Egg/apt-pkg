@@ -53,13 +53,13 @@ on:
           - dev
           - prod
       sign_flag:
-        description: 'yes, or no'
+        description: 'true, or false'
         required: true
-        default: 'yes'
+        default: 'true'
         type: choice
         options:
-          - yes
-          - no
+          - true
+          - false
 
 
 jobs:

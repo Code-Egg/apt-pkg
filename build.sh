@@ -15,6 +15,7 @@ revision=$3
 dists=$4
 input_archs=$5
 build_flag=$6
+release_flag=$7
 lsapi_version=8.1
 #if [ $dists = "ALL" ]; then
 #        echo " convert dists value "
@@ -55,6 +56,6 @@ else
     upload_to_server
 fi
 
-if [ $sign_flag == 'true' ]; then
+if [ "$release_flag" == 'y' ]; then
         sign_release
 fi

@@ -52,14 +52,14 @@ on:
         options:
           - dev
           - prod
-      sign_flag:
-        description: 'true, or false'
+      Release_flag:
+        description: 'Yes, or No'
         required: true
-        default: 'true'
+        default: 'y'
         type: choice
         options:
-          - true
-          - false
+          - y
+          - n
 
 
 jobs:

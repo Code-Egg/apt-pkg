@@ -56,6 +56,6 @@ else
     upload_to_server
 fi
 
-if [ "$release_flag" == 'y' ]; then
+if [ "$release_flag" == 'yes' ]; then
         sign_release
 fi

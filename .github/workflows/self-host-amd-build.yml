@@ -55,11 +55,11 @@ on:
       Release_flag:
         description: 'Generate release file'
         required: true
-        default: 'y'
+        default: 'yes'
         type: choice
         options:
-          - y
-          - n
+          - yes
+          - no
 
 
 jobs:

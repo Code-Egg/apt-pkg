@@ -45,7 +45,7 @@ on:
           - amd64
           #- arm64
       build_flag:
-        description: 'development, or production'
+        description: 'Push package to dev, or prod'
         required: true
         default: 'dev'
         type: choice
@@ -53,7 +53,7 @@ on:
           - dev
           - prod
       Release_flag:
-        description: 'Yes, or No'
+        description: 'Generate release file'
         required: true
         default: 'y'
         type: choice

@@ -20,11 +20,9 @@ on:
           - lsphp83-igbinary
       version:
         description: 'version number'
-        required: true
         type: number
       revision:
         description: 'revision number'
-        required: true
         type: number        
       distro:
         description: 'distro'
@@ -53,3 +51,5 @@ jobs:
           bash build.sh ${{ inputs.package }} ${{ inputs.distro }} amd64 dev yes
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
+          version: ${{ inputs.version }}
+          revision: ${{ inputs.revision }}

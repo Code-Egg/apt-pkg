@@ -53,16 +53,17 @@ for dist in $dists; do
 done
 
 echo " ################# End of Result #################"
-echo $(date)
 
-ls -lR $BUILD_RESULT_DIR/$dist | grep ${product}_${version}-${revision}+${dists}_.*.deb >/dev/null
-if [ ${?} != 0 ] ; then
-    echo "${product}_${version}-${revision}+${dists}_.*.deb is not found!"
-    exit 1
-else
-    upload_to_server
-fi
+for dist in $dists; do
+    ls -lR $BUILD_RESULT_DIR/$dist | grep ${product}_${version}-${revision}+${dist}_.*.deb >/dev/null
+    if [ ${?} != 0 ] ; then
+        echo "${product}_${version}-${revision}+${dist}_.*.deb is not found!"
+        exit 1   
+    fi
+done
 
+upload_to_server
 if [ "$release_flag" == 'yes' ]; then
         sign_release
 fi
+echo $(date)

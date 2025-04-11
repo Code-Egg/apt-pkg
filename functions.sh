@@ -234,7 +234,7 @@ upload_to_server(){
         REP_LOC='/var/www/html'
     fi    
     for dist in `echo $dists`; do
-        echo "Now uploading pkg to ${build_flag} - distribution ${dist}"
+        echo "Uploading pkg to ${build_flag} - distribution ${dist}"
         eval `ssh-agent -s`
         echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
         scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ >/dev/null 2>&1
@@ -242,6 +242,8 @@ upload_to_server(){
 }
 
 sign_release(){
-    echo 'Sign Release'
-    ssh -oStrictHostKeyChecking=no root@rpms.litespeedtech.club -t "/var/www/gen_pkg_release.sh ${build_flag} ${dist}"
+    for dist in `echo $dists`; do
+        echo 'Sign Release for distribution ${dist}'
+        ssh -oStrictHostKeyChecking=no root@rpms.litespeedtech.club -t "/var/www/gen_pkg_release.sh ${build_flag} ${dist}"
+    done
 }

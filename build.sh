@@ -1,7 +1,6 @@
 #!/bin/bash
-
+target_server='rpms.litespeedtech.club'
 source ./functions.sh #2>/dev/null
-
 echo " Check if the user is root "
 if [ $(id -u) != "0" ]; then
     echo "Error: The user is not root "
@@ -10,12 +9,18 @@ if [ $(id -u) != "0" ]; then
 fi
 
 product=$1
-version=$2
-revision=$3
-dists=$4
-input_archs=$5
-build_flag=$6
-release_flag=$7
+dists=$2
+input_archs=$3
+build_flag=$4
+release_flag=$5
+version="grep ${product} VERSION.txt | awk -F '=' '{print $2}'"
+revision=$(curl -isk https://${target_server}/debian/pool/main/$dists/ | grep ${product}_${version} \
+  | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)
+if [ $revision == ?(-)+([[:digit:]]) ]; then
+    revision=$((revision+1))
+else
+    revision=1
+fi
 lsapi_version=8.1
 #if [ $dists = "ALL" ]; then
 #        echo " convert dists value "

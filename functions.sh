@@ -3,7 +3,6 @@
 #set -v
 #source ~/.bashrc
 cur_path=$(pwd)
-target_server='rpms.litespeedtech.club'
 
 check_input(){
     echo " ###########   Check_input  ############# "

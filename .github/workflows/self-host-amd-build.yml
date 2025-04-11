@@ -50,6 +50,6 @@ jobs:
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} amd64 dev yes
+          bash build.sh ${{ inputs.package }} ${{ inputs.distro }} amd64 dev yes
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}

@@ -29,19 +29,14 @@ if [ -z "${revision}" ]; then
 fi      
 
 lsapi_version=8.1
-#if [ $dists = "ALL" ]; then
-#        echo " convert dists value "
-#            dists="jammy bionic buster focal bullseye bookworm noble"
-#        echo " the new value for dists is $dists "
-#fi
-
-if [ $input_archs = "ALL" ]; then
-    echo " convert archs value "
-    archs="amd64 arm64"
-    echo " the new value for archs is $archs "
-else
-    archs=$input_archs
+if [ $dists = "all" ]; then
+        echo " convert dists value "
+            dists="jammy noble"
+            #dists="jammy bionic buster focal bullseye bookworm noble"
+        echo " the new value for dists is $dists "
 fi
+
+archs=$input_archs
 
 check_input
 set_paras

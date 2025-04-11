@@ -32,8 +32,10 @@ on:
         options:
           - noble
           - jammy
+          - focal
           - bookworm
           - bullseye
+          - buster
           - all
 
 jobs:

@@ -227,21 +227,6 @@ pbuild_packages(){
     done
 }
 
-sign_packages(){
-    echo 'Sign package deb files'
-    cd $BUILD_DIR/build-result
-    for dist in `echo $dists`; do
-        cd $BUILD_DIR/build-result/${dist}
-        for pkg in `ls | grep deb$`; do
-            echo " signing the package: $pkg"
-            ###For Ubuntu 24+ and Debian 12+
-            debsigs --sign=origin --default-key=12345678 $pkg
-            ###Support for older systems
-            #dpkg-sig -k xxxxxxxx --sign builder $pkg
-        done
-    done
-}
-
 upload_to_server(){
     cd $BUILD_DIR/build-result
     if [[ "${build_flag}" = 'dev' ]] ; then

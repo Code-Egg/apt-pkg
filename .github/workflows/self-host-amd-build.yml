@@ -36,31 +36,6 @@ on:
           - jammy
           - bookworm
           - bullseye
-      arch:
-        description: 'arch'
-        required: true
-        default: 'amd64'
-        type: choice
-        options:
-          - amd64
-          #- arm64
-      build_flag:
-        description: 'Push package to dev, or prod'
-        required: true
-        default: 'dev'
-        type: choice
-        options:
-          - dev
-          - prod
-      Release_flag:
-        description: 'Generate release file'
-        required: true
-        default: 'yes'
-        type: choice
-        options:
-          - yes
-          - no
-
 
 jobs:
   package:
@@ -75,6 +50,6 @@ jobs:
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} ${{ inputs.arch }} ${{ inputs.build_flag}}
+          bash build.sh ${{ inputs.package }} ${{ inputs.version }} ${{ inputs.revision }} ${{ inputs.distro }} amd64 dev yes
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}

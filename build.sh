@@ -13,14 +13,21 @@ dists=$2
 input_archs=$3
 build_flag=$4
 release_flag=$5
-version="grep ${product} VERSION.txt | awk -F '=' '{print $2}'"
-revision=$(curl -isk https://${target_server}/debian/pool/main/$dists/ | grep ${product}_${version} \
-  | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)
-if [ $revision == ?(-)+([[:digit:]]) ]; then
-    revision=$((revision+1))
-else
-    revision=1
+
+if [ -z "${version}" ]; then
+    version="grep ${product}= VERSION.txt | awk -F '=' '{print $2}'"
 fi
+if [ -z "${revision}" ]; then
+    revision=$(curl -isk https://${target_server}/debian/pool/main/$dists/ | grep ${product}_${version} \
+      | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)
+    if [ $revision == ?(-)+([[:digit:]]) ]; then
+        revision=$((revision+1))
+    else
+        echo "$revision is not a number, set value to 1"
+        revision=1
+    fi      
+fi      
+
 lsapi_version=8.1
 #if [ $dists = "ALL" ]; then
 #        echo " convert dists value "

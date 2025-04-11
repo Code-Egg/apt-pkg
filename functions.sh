@@ -243,7 +243,7 @@ upload_to_server(){
 
 sign_release(){
     for dist in `echo $dists`; do
-        echo 'Sign Release for distribution ${dist}'
+        echo "Sign Release for distribution ${dist}"
         ssh -oStrictHostKeyChecking=no root@rpms.litespeedtech.club -t "/var/www/gen_pkg_release.sh ${build_flag} ${dist}"
     done
 }

@@ -16,17 +16,7 @@ release_flag=$5
 
 if [ -z "${version}" ]; then
     version="$(grep ${product}= VERSION.txt | awk -F '=' '{print $2}')"
-fi
-if [ -z "${revision}" ]; then
-    revision=$(curl -isk https://${target_server}/debian/pool/main/$dists/ | grep ${product}_${version} \
-      | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)
-    if [[ $revision == ?(-)+([[:digit:]]) ]]; then
-        revision=$((revision+1))
-    else
-        echo "$revision is not a number, set value to 1"
-        revision=1
-    fi      
-fi      
+fi  
 
 lsapi_version=8.1
 if [ $dists = "all" ]; then
@@ -34,6 +24,18 @@ if [ $dists = "all" ]; then
             dists="noble jammy bookworm bullseye"
             #dists="jammy bionic buster focal bullseye bookworm noble"
         echo " the new value for dists is $dists "
+fi
+
+if [ -z "${revision}" ]; then
+    TMP_DIST=$(echo $dists | awk '{ print $1 }') ### Check first dist and use it as the revision number
+    revision=$(curl -isk https://${target_server}/debian/pool/main/$TMP_DIST/ | grep ${product}_${version} \
+      | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)
+    if [[ $revision == ?(-)+([[:digit:]]) ]]; then
+        revision=$((revision+1))
+    else
+        echo "$revision is not a number, set value to 1"
+        revision=1
+    fi      
 fi
 
 archs=$input_archs

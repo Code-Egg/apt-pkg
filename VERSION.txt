@@ -1,7 +1,7 @@
 lsphp83=8.3.19
 lsphp83-apcu=5.1.24
 lsphp83-imagick=3.8.0
-lsphp83-ioncube=14.0.2
+lsphp83-ioncube=13.3.0
 lsphp83-msgpack=3.0.0
 lsphp83-memcached=3.2.0
 lsphp83-pear=1.10.15

@@ -21,8 +21,7 @@ fi
 lsapi_version=8.1
 if [ $dists = "all" ]; then
         echo " convert dists value "
-            dists="noble jammy bookworm bullseye"
-            #dists="jammy bionic buster focal bullseye bookworm noble"
+            dists="noble jammy focal bookworm bullseye buster"
         echo " the new value for dists is $dists "
 fi
 

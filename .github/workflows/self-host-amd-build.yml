@@ -9,16 +9,16 @@ on:
         default: 'lsphp83'
         type: choice
         options:
-          - lsphp83
-          - lsphp83-apcu
-          - lsphp83-imagick
-          - lsphp83-ioncube
-          - lsphp83-memcached
-          - lsphp83-msgpack
-          - lsphp83-pear
-          - lsphp83-redis
-          - lsphp83-igbinary
-          - '"lsphp83-apcu","lsphp83-imagick","lsphp83-ioncube","lsphp83-msgpack"'
+          - '"lsphp83"'
+          - '"lsphp83-apcu"'
+          - '"lsphp83-imagick"'
+          - '"lsphp83-ioncube"'
+          - '"lsphp83-memcached"'
+          - '"lsphp83-msgpack"'
+          - '"lsphp83-pear"'
+          - '"lsphp83-redis"'
+          - '"lsphp83-igbinary"'
+          - '"lsphp83-apcu","lsphp83-imagick"'
       version:
         description: 'version number'
         type: number
@@ -31,12 +31,12 @@ on:
         default: 'noble'
         type: choice
         options:
-          - noble
-          - jammy
-          - focal
-          - bookworm
-          - bullseye
-          - buster
+          - '"noble"'
+          - '"jammy"'
+          - '"focal"'
+          - '"bookworm"'
+          - '"bullseye"'
+          - '"buster"'
           - '"noble","jammy"'
 
 jobs:

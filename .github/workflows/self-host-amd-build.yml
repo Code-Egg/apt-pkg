@@ -37,7 +37,7 @@ on:
           - bookworm
           - bullseye
           - buster
-          - all
+          - '"noble","jammy"'
 
 jobs:
   package:
@@ -48,6 +48,7 @@ jobs:
     strategy:
       matrix:
         package: ${{ fromJSON(format('[{0}]', inputs.package)) }}
+        distro: ${{ fromJSON(format('[{0}]', inputs.distro)) }}
     steps:
       - uses: actions/checkout@v2
       - name: build
@@ -55,7 +56,7 @@ jobs:
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          bash build.sh ${{ matrix.package }} ${{ inputs.distro }} amd64 dev yes
+          bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}

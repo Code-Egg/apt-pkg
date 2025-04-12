@@ -164,10 +164,10 @@ prepare_source(){
             mv php-memcached-master "${PHP_EXTENSION}-${version}"
             source_folder_name="${PHP_EXTENSION}-${version}"
         elif [ ${PHP_EXTENSION} == 'msgpack' ] ; then
-            source_url="https://pecl.php.net/get/${PHP_EXTENSION}-${version}RC2.tgz"
+            source_url="https://pecl.php.net/get/${PHP_EXTENSION}-${version}.tgz"
             wget ${source_url}
-            tar -xzf "${PHP_EXTENSION}-${version}RC2.tgz"
-            source_folder_name="${PHP_EXTENSION}-${version}RC2"
+            tar -xzf "${PHP_EXTENSION}-${version}.tgz"
+            source_folder_name="${PHP_EXTENSION}-${version}"
         else
             source_url="https://pecl.php.net/get/${PHP_EXTENSION}-${version}.tgz"
             wget ${source_url}

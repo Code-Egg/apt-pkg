@@ -9,16 +9,16 @@ on:
         default: 'lsphp83'
         type: choice
         options:
-          - lsphp
-          - apcu
-          - imagick
-          - ioncube
-          - memcached
-          - msgpack
-          - pear
-          - redis
-          - igbinary
-          - all
+          - '"lsphp83"'
+          - '"lsphp83-apcu"'
+          - '"lsphp83-imagick"'
+          - '"lsphp83-ioncube"'
+          - '"lsphp83-memcached"'
+          - '"lsphp83-msgpack"'
+          - '"lsphp83-pear"'
+          - '"lsphp83-redis"'
+          - '"lsphp83-igbinary"'
+          - '"lsphp83","lsphp83-apcu","lsphp83-imagick","lsphp83-ioncube","lsphp83-msgpack","lsphp83-memcached","lsphp83-pear","lsphp83-redis","lsphp83-igbinary"'
       version:
         description: 'version number'
         type: number
@@ -38,17 +38,6 @@ on:
           - '"bullseye"'
           - '"buster"'
           - '"noble","jammy","focal","bookworm","bullseye","buster"'
-env:
-  lsphp: '"lsphp83"'
-  apcu: '"lsphp83-apcu"'
-  imagick: '"lsphp83-imagick"'
-  ioncube: '"lsphp83-ioncube"'
-  memcached: '"lsphp83-memcached"'
-  msgpack: '"lsphp83-msgpack"'
-  pear: '"lsphp83-pear"'
-  redis: '"lsphp83-redis"'
-  igbinary: '"lsphp83-igbinary"'
-  all: '"lsphp83","lsphp83-apcu","lsphp83-imagick","lsphp83-ioncube","lsphp83-msgpack","lsphp83-memcached","lsphp83-pear","lsphp83-redis","lsphp83-igbinary"'
 
 jobs:
   package:
@@ -58,7 +47,7 @@ jobs:
       options: --user root --cap-add SYS_ADMIN --security-opt seccomp=unconfined --security-opt apparmor=unconfined
     strategy:
       matrix:
-        package: ${{ fromJSON(format('[{0}]', "env[inputs.package]")) }}
+        package: ${{ fromJSON(format('[{0}]', inputs.package)) }}
         distro: ${{ fromJSON(format('[{0}]', inputs.distro)) }}
     steps:
       - uses: actions/checkout@v2

@@ -26,11 +26,9 @@ set_paras(){
             exit 1
         fi
         PRODUCT_DIR=${cur_path}/build/"${PHP_EXTENSION}"
-        #PRODUCT_DIR=/root/apt-pkg/build/"${PHP_EXTENSION}"
         BUILD_DIR=$PRODUCT_DIR/"lsphp${PHP_VERSION_NUMBER}-$version-$revision"
     else
         PRODUCT_DIR=${cur_path}/build/$product
-        #PRODUCT_DIR=/root/apt-pkg/build/$product
         BUILD_DIR=$PRODUCT_DIR/"$version-$revision"
     fi
     BUILD_RESULT_DIR=$BUILD_DIR/build-result

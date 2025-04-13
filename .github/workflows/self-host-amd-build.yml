@@ -39,8 +39,8 @@ on:
           - '"buster"'
           - '"noble","jammy","focal","bookworm","bullseye","buster"'
 env:
-  lsphp83: '"lsphp83"'
-  apcu: '"lsphp83-apcu"'
+  lsphp: '"lsphp83"'
+  apcu: "'lsphp83-apcu'"
   imagick: '"lsphp83-imagick"'
   ioncube: '"lsphp83-ioncube"'
   memcached: '"lsphp83-memcached"'

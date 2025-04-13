@@ -40,7 +40,7 @@ on:
           - '"noble","jammy","focal","bookworm","bullseye","buster"'
 env:
   lsphp: '"lsphp83"'
-  apcu: "'lsphp83-apcu'"
+  apcu: '"lsphp83-apcu"'
   imagick: '"lsphp83-imagick"'
   ioncube: '"lsphp83-ioncube"'
   memcached: '"lsphp83-memcached"'
@@ -58,7 +58,7 @@ jobs:
       options: --user root --cap-add SYS_ADMIN --security-opt seccomp=unconfined --security-opt apparmor=unconfined
     strategy:
       matrix:
-        package: ${{ fromJSON(format('[{0}]', env[inputs.package])) }}
+        package: ${{ fromJSON(format('[{0}]', "env[inputs.package"])) }}
         distro: ${{ fromJSON(format('[{0}]', inputs.distro)) }}
     steps:
       - uses: actions/checkout@v2

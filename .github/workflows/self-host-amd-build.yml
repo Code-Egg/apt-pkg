@@ -56,7 +56,11 @@ jobs:
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
+          if [[ "${{github.base_ref}}" == "master" || "${{github.ref}}" == "refs/heads/master" ]]; then
+              bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
+          else
+              bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64
+          fi    
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}

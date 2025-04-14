@@ -12,6 +12,7 @@ check_input(){
     echo " Required archs are $archs "
     echo " Required dists are $dists "
     echo " Build location is $build_flag"
+    echo " Sign release is $release_flag"
 }
 
 set_paras(){

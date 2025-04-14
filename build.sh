@@ -63,7 +63,9 @@ for dist in $dists; do
     fi
 done
 
-upload_to_server
+if [[ "${build_flag}" = 'dev' ]] || [[ "${build_flag}" = 'prod' ]]; then
+    upload_to_server
+fi
 if [ "$release_flag" == 'yes' ]; then
         sign_release
 fi

@@ -51,17 +51,13 @@ jobs:
         distro: ${{ fromJSON(format('[{0}]', inputs.distro)) }}
     steps:
       - uses: actions/checkout@v2
-      - name: build
+      - name: build with main branch
+        if: github.base_ref == 'main' || github.ref == 'refs/heads/main'
         run: |
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/
           chmod +x $HOME/B92test-pkg
-          if [[ "${{github.base_ref}}" == "main" || "${{github.ref}}" == "refs/heads/main" ]]; then
-              echo 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM'
               bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
-          else
-              bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64
-          fi    
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}

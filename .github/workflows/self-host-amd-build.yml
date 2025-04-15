@@ -53,7 +53,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: build with main branch
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]
+          then
             cp /root/.pbuilderrc $HOME/
             cp B92test-pkg $HOME/
             chmod +x $HOME/B92test-pkg

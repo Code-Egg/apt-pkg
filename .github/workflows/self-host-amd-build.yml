@@ -51,7 +51,7 @@ jobs:
         distro: ${{ fromJSON(format('[{0}]', inputs.distro)) }}
     steps:
       - uses: actions/checkout@v3
-      - name: build with main branch
+      - name: build with ${{ github.ref }} branch
         if: ${{ (github.ref == 'refs/heads/main') }}
         run: |
             cp /root/.pbuilderrc $HOME/
@@ -60,7 +60,7 @@ jobs:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}
           revision: ${{ inputs.revision }}
-      - name: build with other branch
+      - name: build with ${{ github.ref }} branch
         if: ${{ (github.ref != 'refs/heads/main') }}
         run: |
             cp /root/.pbuilderrc $HOME/

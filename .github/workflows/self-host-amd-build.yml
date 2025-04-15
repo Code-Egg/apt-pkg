@@ -50,14 +50,23 @@ jobs:
         package: ${{ fromJSON(format('[{0}]', inputs.package)) }}
         distro: ${{ fromJSON(format('[{0}]', inputs.distro)) }}
     steps:
-      - uses: actions/checkout@v2
-      - name: build
+      - uses: actions/checkout@v3
+      - name: build with main branch
+        if: ${{ (github.ref == 'refs/heads/main') }}
         run: |
-          cp /root/.pbuilderrc $HOME/
-          cp B92test-pkg $HOME/
-          chmod +x $HOME/B92test-pkg
-          bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
+            cp /root/.pbuilderrc $HOME/
+            bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}
           revision: ${{ inputs.revision }}
+      - name: build with other branch
+        if: ${{ (github.ref != 'refs/heads/main') }}
+        run: |
+            cp /root/.pbuilderrc $HOME/
+            cp B92test-pkg $HOME/
+            chmod +x $HOME/B92test-pkg
+            bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64
+        env:
+          version: ${{ inputs.version }}
+          revision: ${{ inputs.revision }}          

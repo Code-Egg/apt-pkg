@@ -7,12 +7,19 @@ if [ $(id -u) != "0" ]; then
     echo "Please run this script as root"
     exit 1
 fi
-
+PHP_V=83
 product=$1
 dists=$2
 input_archs=$3
 build_flag=$4
 release_flag=$5
+
+if [ "${product}" == 'lsphp' ]; then
+    product="${product}"${PHP_V}
+else
+    product=lsphp${PHP_V}-"${product}"
+fi
+
 
 if [ -z "${version}" ]; then
     version="$(grep ${product}= VERSION.txt | awk -F '=' '{print $2}')"

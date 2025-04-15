@@ -14,16 +14,15 @@ input_archs=$3
 build_flag=$4
 release_flag=$5
 
+if [ -z "${version}" ]; then
+    version="$(grep ${product}= VERSION.txt | awk -F '=' '{print $2}')"
+fi  
+
 if [ "${product}" == 'lsphp' ]; then
     product="${product}"${PHP_V}
 else
     product=lsphp${PHP_V}-"${product}"
 fi
-
-
-if [ -z "${version}" ]; then
-    version="$(grep ${product}= VERSION.txt | awk -F '=' '{print $2}')"
-fi  
 
 lsapi_version=8.1
 if [ $dists = "all" ]; then

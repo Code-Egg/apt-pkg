@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build with main branch
-        if: github.base_ref == 'main' || github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/remotes/origin/main'
         run: |
           cp /root/.pbuilderrc $HOME/
           cp B92test-pkg $HOME/

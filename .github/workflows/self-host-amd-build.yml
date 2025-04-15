@@ -52,17 +52,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: build with main branch
+        if: ${{ (github.ref == 'refs/heads/main') }}
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]
-          then
             cp /root/.pbuilderrc $HOME/
             cp B92test-pkg $HOME/
             chmod +x $HOME/B92test-pkg
-                bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
-          else
-            echo 'Test'
-            exit 0      
-          fi      
+            bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
+      
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}

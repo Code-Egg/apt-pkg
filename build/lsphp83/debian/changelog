@@ -1,6 +1,6 @@
-php8.3 (#VERSION#-#BUILD_REVISION#+#DIST#) #DIST#; urgency=medium
+php8.4 (#VERSION#-#BUILD_REVISION#+#DIST#) #DIST#; urgency=medium
 
-  * This is build #BUILD_REVISION# of lsphp83 
+  * This is build #BUILD_REVISION# of lsphp84 
   * 
 
  -- lsadm <info@litespeedtech.com>  #DATE# +0100

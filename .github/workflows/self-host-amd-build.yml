@@ -55,11 +55,18 @@ jobs:
         if: ${{ (github.ref == 'refs/heads/main') }}
         run: |
             cp /root/.pbuilderrc $HOME/
-            cp B92test-pkg $HOME/
-            chmod +x $HOME/B92test-pkg
             bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
-      
         env:
           BUILD_KEY: ${{ secrets.BUILD_KEY }}
           version: ${{ inputs.version }}
           revision: ${{ inputs.revision }}
+      - name: build with other branch
+        if: ${{ (github.ref != 'refs/heads/main') }}
+        run: |
+            cp /root/.pbuilderrc $HOME/
+            cp B92test-pkg $HOME/
+            chmod +x $HOME/B92test-pkg
+            bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64
+        env:
+          version: ${{ inputs.version }}
+          revision: ${{ inputs.revision }}          

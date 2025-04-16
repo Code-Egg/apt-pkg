@@ -338,6 +338,18 @@ install: prepare-files-stamp
 	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/'
 	ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/	
 
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/'
+	ls /usr/local/lsws/lsphp84/lib/php/
+
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/build/'
+	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/build/	
+
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/build/'
+	ls /usr/local/lsws/lsphp84/lib/php/build/	
+
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/build/'
+	ls /usr/local/lsws/lsphp84/lib/php/build/
+
 	# install extra CGI-BIN
 	install -d -m 755 debian/tmp/$(LSPHP_INST_DIR)/lib/cgi-bin/; \
 
@@ -380,12 +392,11 @@ install: prepare-files-stamp
 	#install -m 755 debian/tmp/usr/local/lsws/lsphp84/bin/php-config8.4 debian/lsphp84-dev/$(LSPHP_INST_DIR)/bin/php-config
 	#install -m 755 debian/tmp/usr/local/lsws/lsphp84/bin/php8.4 debian/tmp/usr/local/lsws/lsphp84/bin/php	
 
-	
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD 1.5'
 
-#dh_install --list-missing
-	dh_install --fail-missing
-#	dh_install	
-	# shipping duplicate files from other packages is hell for security audits
+	dh_install --list-missing
+	#dh_install	
+# shipping duplicate files from other packages is hell for security audits
 #	ln -sf /usr/share/misc/config.guess $(PHPIZE_BUILDDIR)/config.guess
 #	ln -sf /usr/share/misc/config.sub $(PHPIZE_BUILDDIR)/config.sub
 #	#ln -sf /usr/share/aclocal/libtool.m4 $(PHPIZE_BUILDDIR)/libtool.m4

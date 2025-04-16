@@ -1,4 +1,4 @@
-Source: php8.3
+Source: php8.4
 Section: php
 Priority: optional
 Maintainer: Debian PHP Maintainers <pkg-php-maint@lists.alioth.debian.org>
@@ -72,13 +72,13 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-php/php.git
 Homepage: http://www.php.net/
 XS-Testsuite: autopkgtest
 
-Package: lsphp83
+Package: lsphp84
 Architecture: any
 Depends: libmagic1,
          mime-support,
-         lsphp83-common (>= ${source:Version}),
-         lsphp83-json,
-         lsphp83-opcache,
+         lsphp84-common (>= ${source:Version}),
+         lsphp84-json,
+         lsphp84-opcache,
          tzdata,
          ucf,
          ${misc:Depends},
@@ -98,7 +98,7 @@ Description: server-side, HTML-embedded scripting language (LSAPI binary)
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-common
+Package: lsphp84-common
 Architecture: all
 Depends: ${misc:Depends}
 Suggests: php-user-cache
@@ -111,8 +111,8 @@ Description: Common files for packages built from the PHP source
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-dbg
-Depends: lsphp83 (= ${binary:Version}),
+Package: lsphp84-dbg
+Depends: lsphp84 (= ${binary:Version}),
          ${misc:Depends}
 Recommends: gdb
 Section: debug
@@ -126,13 +126,13 @@ Description: Debug symbols for LSPHP70
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-dev
+Package: lsphp84-dev
 Depends: autoconf ,
          automake ,
          libpcre3-dev,
          libssl-dev,
          libtool ,
-         lsphp83-common (>= ${source:Version}),
+         lsphp84-common (>= ${source:Version}),
          shtool,
          ${misc:Depends},
          ${perl:Depends}
@@ -147,9 +147,9 @@ Description: Files for PHP70 module development
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-modules-source
+Package: lsphp84-modules-source
 Architecture: all
-Depends: lsphp83-dev,
+Depends: lsphp84-dev,
          ${misc:Depends}
 Description: PHP 70 modules source package
  This package contains source for PHP 70 modules that can be
@@ -161,9 +161,9 @@ Description: PHP 70 modules source package
 
 
 
-Package: lsphp83-recode
+Package: lsphp84-recode
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -177,9 +177,9 @@ Description: recode module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-sqlite3
+Package: lsphp84-sqlite3
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -193,9 +193,9 @@ Description: SQLite3 module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-sybase
+Package: lsphp84-sybase
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -209,9 +209,9 @@ Description: Sybase module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-ldap
+Package: lsphp84-ldap
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -225,9 +225,9 @@ Description: LDAP module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-intl
+Package: lsphp84-intl
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -241,9 +241,9 @@ Description: Internationalisation module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-snmp
+Package: lsphp84-snmp
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -257,9 +257,9 @@ Description: SNMP module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-json
+Package: lsphp84-json
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -273,9 +273,9 @@ Description: JSON module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-pgsql
+Package: lsphp84-pgsql
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -289,9 +289,9 @@ Description: PostgreSQL module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-opcache
+Package: lsphp84-opcache
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -305,9 +305,9 @@ Description: Zend OpCache module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-imap
+Package: lsphp84-imap
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -321,9 +321,9 @@ Description: IMAP module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-mysql
+Package: lsphp84-mysql
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -337,9 +337,9 @@ Description: MySQL module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-tidy
+Package: lsphp84-tidy
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -353,9 +353,9 @@ Description: tidy module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-pspell
+Package: lsphp84-pspell
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},
@@ -369,9 +369,9 @@ Description: pspell module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-curl
+Package: lsphp84-curl
 Architecture: any
-Depends: lsphp83-common,
+Depends: lsphp84-common,
          ucf,
          ${misc:Depends},
          ${php:Depends},

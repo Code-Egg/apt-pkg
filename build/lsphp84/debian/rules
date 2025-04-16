@@ -329,7 +329,8 @@ install: prepare-files-stamp
 
 	mkdir -p debian/tmp/$(LSPHP_INST_DIR)/src/
 	tar -cJf debian/tmp/$(LSPHP_INST_DIR)/src/$(PHP_MODULES_SOURCE).tar.xz ext/
-    echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDbug ext'; ls ext
+    echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDbug ext'
+	ls ext
 
     echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/'
     ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/

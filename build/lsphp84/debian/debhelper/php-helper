@@ -117,7 +117,7 @@ get_priority() {
     local sapi=$2
     local modname=$3
 
-    local source_ini="/usr/local/lsws/lsphp83/etc/php/mods-available/${modname}.ini"
+    local source_ini="/usr/local/lsws/lsphp84/etc/php/mods-available/${modname}.ini"
 
     module_ret=0
     module_exists "$version" "$modname" || module_ret=$?
@@ -172,13 +172,13 @@ get_registry_dir() {
 }
 
 get_version_dir() {
-    echo "/usr/local/lsws/lsphp83/usr/lib/php"
+    echo "/usr/local/lsws/lsphp84/usr/lib/php"
     return 0
 }
 
 get_sapi_dir() {
     local version=$1
-    echo "/usr/local/lsws/lsphp83/usr/lib/php/${version}/sapi"
+    echo "/usr/local/lsws/lsphp84/usr/lib/php/${version}/sapi"
     return 0
 }
 

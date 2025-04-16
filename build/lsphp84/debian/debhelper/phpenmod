@@ -28,7 +28,7 @@ QUIET=no
 NEED_RESTART=no
 MAINT_MODE=no
 
-. /usr/local/lsws/lsphp83/bin/php-helper
+. /usr/local/lsws/lsphp84/bin/php-helper
 
 usage() {
     [ -n "$@" ] && warning $@
@@ -39,7 +39,7 @@ usage() {
 resolve_versions() {
     local versions=$1
     if [ "$versions" = "ALL" ]; then
-	versions=$(/usr/local/lsws/lsphp83/bin/phpquery -V)
+	versions=$(/usr/local/lsws/lsphp84/bin/phpquery -V)
     fi
     echo $versions
 }
@@ -49,7 +49,7 @@ resolve_sapis() {
     local sapis=$2
     
     if [ "$sapis" = "ALL" ]; then
-	sapis=$(/usr/local/lsws/lsphp83/bin/phpquery -S -v $version)
+	sapis=$(/usr/local/lsws/lsphp84/bin/phpquery -S -v $version)
     fi
     echo $sapis
 }
@@ -123,7 +123,7 @@ enmod() {
     local modname=$3
 
     if ! module_exists "$version" "$modname"; then
-	warning "Module $modname ini file doesn't exist under /usr/local/lsws/lsphp83/etc/php/mods-available"
+	warning "Module $modname ini file doesn't exist under /usr/local/lsws/lsphp84/etc/php/mods-available"
 	return 1
     fi
 
@@ -132,7 +132,7 @@ enmod() {
     local live_link_content=$(get_live_link_content "$version" "$sapi" "$modname" "$priority")
 
     local module_state=0
-    /usr/local/lsws/lsphp83/bin/phpquery -q -v "$version" -s "$sapi" -m "$modname" || module_state=$?
+    /usr/local/lsws/lsphp84/bin/phpquery -q -v "$version" -s "$sapi" -m "$modname" || module_state=$?
 
     case "$module_state" in
 	# module enabled, but re-enable the conf.d link just in case
@@ -185,7 +185,7 @@ dismod() {
 
     if ! module_exists "$version" "$modname"; then
 	if [ "$purge" = "no" ]; then
-	    warning "Module ${modname} ini file doesn't exist under /usr/local/lsws/lsphp83/etc/php/mods-available"
+	    warning "Module ${modname} ini file doesn't exist under /usr/local/lsws/lsphp84/etc/php/mods-available"
 	    return 1
 	fi
     fi
@@ -195,7 +195,7 @@ dismod() {
     local live_link_content=$(get_live_link_content "$version" "$sapi" "$modname" "$priority")
 
     local module_state=0
-    /usr/local/lsws/lsphp83/bin/phpquery -q -v "$version" -s "$sapi" -m "$modname" || module_state=$?
+    /usr/local/lsws/lsphp84/bin/phpquery -q -v "$version" -s "$sapi" -m "$modname" || module_state=$?
 
     case $module_state in
 	# module enabled

@@ -5,10 +5,10 @@
 #EXTRA#
 
 if [ "$1" = "configure" ]; then
-  inidir=/usr/local/lsws/lsphp83/etc/php/8.3/mods-available
+  inidir=/usr/local/lsws/lsphp84/etc/php/8.4/mods-available
 
-  if [ -e /usr/local/lsws/lsphp83/bin/php-maintscript-helper ] ; then
-    . /usr/local/lsws/lsphp83/bin/php-maintscript-helper
+  if [ -e /usr/local/lsws/lsphp84/bin/php-maintscript-helper ] ; then
+    . /usr/local/lsws/lsphp84/bin/php-maintscript-helper
   elif [ -e /usr/lib/php/php-maintscript-helper ] ; then
     . /usr/lib/php/php-maintscript-helper
   fi
@@ -17,7 +17,7 @@ if [ "$1" = "configure" ]; then
     inifile=${dsoname}.ini
 
     # Register new conffile with UCF
-    ucf /usr/local/lsws/lsphp83/share/@package@/@module@/${inifile} ${inidir}/${inifile}
+    ucf /usr/local/lsws/lsphp84/share/@package@/@module@/${inifile} ${inidir}/${inifile}
     ucfr --force @package@ ${inidir}/${inifile}
       
     if [ -f "${inidir}/${inifile}.dpkg-new" ]; then
@@ -28,8 +28,8 @@ if [ "$1" = "configure" ]; then
       fi
     fi
   
-    if [ -e /usr/local/lsws/lsphp83/bin/phpenmod ] ; then
-      /usr/local/lsws/lsphp83/bin/phpenmod ALL ALL ${dsoname}
+    if [ -e /usr/local/lsws/lsphp84/bin/phpenmod ] ; then
+      /usr/local/lsws/lsphp84/bin/phpenmod ALL ALL ${dsoname}
     elif [ -e /usr/sbin/phpenmod ] ; then
       phpenmod ALL ALL ${dsoname}
     fi

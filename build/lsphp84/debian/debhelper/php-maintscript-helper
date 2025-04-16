@@ -192,14 +192,14 @@ php_invoke()
     local rcd_scripts=""
     local sapi_list=""
 
-    [ -x "/usr/local/lsws/lsphp83/bin/php$CMD" ] || return 1
-    [ -x "/usr/local/lsws/lsphp83/bin/phpquery" ] || return 1
+    [ -x "/usr/local/lsws/lsphp84/bin/php$CMD" ] || return 1
+    [ -x "/usr/local/lsws/lsphp84/bin/phpquery" ] || return 1
 
     version_list="$VERSION"
 
     case "$VERSION" in
     	 ALL)
-	     version_list=$(/usr/local/lsws/lsphp83/bin/phpquery -V)
+	     version_list=$(/usr/local/lsws/lsphp84/bin/phpquery -V)
 	     ;;
 	 *)
 	     # FIXME - check if the version is supported
@@ -213,10 +213,10 @@ php_invoke()
 	    apache2|apache2filter|fpm|cli|cgi|embed|phpdbg)
 	    ;;
 	    ALL)
-		sapi_list=$(/usr/local/lsws/lsphp83/bin/phpquery -S -v $VERSION)
+		sapi_list=$(/usr/local/lsws/lsphp84/bin/phpquery -S -v $VERSION)
 		case "$CMD" in
 		    enmod|dismod)
-			/usr/local/lsws/lsphp83/bin/php$CMD -q -m -r "$MOD" || return 1
+			/usr/local/lsws/lsphp84/bin/php$CMD -q -m -r "$MOD" || return 1
 			;;
 		    *)
 			return 1
@@ -232,10 +232,10 @@ php_invoke()
 	    case "$CMD" in
 		enmod)
 		    local phpquery_ret=0
-		    /usr/local/lsws/lsphp83/bin/phpquery -v "$VERSION" -s "$SAPI" -m "$MOD" > /dev/null 2>&1 || phpquery_ret=$?
+		    /usr/local/lsws/lsphp84/bin/phpquery -v "$VERSION" -s "$SAPI" -m "$MOD" > /dev/null 2>&1 || phpquery_ret=$?
 		    if [ "$phpquery_ret" -eq 0 ] ; then
 			# configuration is already enabled
- 			/usr/local/lsws/lsphp83/bin/php$CMD -m -v "$VERSION" -s "$SAPI" -q "$MOD" > /dev/null 2>&1 || return 1
+ 			/usr/local/lsws/lsphp84/bin/php$CMD -m -v "$VERSION" -s "$SAPI" -q "$MOD" > /dev/null 2>&1 || return 1
 			php_msg "debug" "php_invoke $MOD: already enabled for PHP $VERSION $SAPI SAPI"
 			PHP_NEED_ACTION=1
 		    elif [ "$phpquery_ret" -eq 32	 ] ; then
@@ -247,21 +247,21 @@ php_invoke()
 			# a) we have no clue about the module (e.g. for upgrades prior to maintscript-helper
 			# b) it's a fresh install
 			PHP_NEED_ACTION=1
- 			/usr/local/lsws/lsphp83/bin/php$CMD -m -v "$VERSION" -s "$SAPI" -q "$MOD" > /dev/null 2>&1 || return 1
+ 			/usr/local/lsws/lsphp84/bin/php$CMD -m -v "$VERSION" -s "$SAPI" -q "$MOD" > /dev/null 2>&1 || return 1
 			php_msg "info" "php_invoke: Enable module $MOD for $SAPI SAPI"
 		    fi
 		    ;;
 		dismod)
 		    local phpquery_ret=0
-		    /usr/local/lsws/lsphp83/bin/phpquery -v "$VERSION" -s "$SAPI" -m "$MOD" > /dev/null 2>&1 || phpquery_ret=$?
+		    /usr/local/lsws/lsphp84/bin/phpquery -v "$VERSION" -s "$SAPI" -m "$MOD" > /dev/null 2>&1 || phpquery_ret=$?
 		    if [ "$phpquery_ret" -eq 0 ] ; then
 			if [ "$PHP_MAINTSCRIPT_NAME" = 'postrm' ] && [ "$PHP_MAINTSCRIPT_METHOD" = "purge" ] ; then
-			    /usr/local/lsws/lsphp83/bin/php$CMD -p -f -v "$VERSION" -s "$SAPI" -q "$MOD" || return 1
+			    /usr/local/lsws/lsphp84/bin/php$CMD -p -f -v "$VERSION" -s "$SAPI" -q "$MOD" || return 1
 			    php_msg "debug" "php_invoke $PHP_MAINTSCRIPT_NAME: Purging module $MOD for $SAPI SAPI"
 			    PHP_NEED_ACTION=1
 			elif [ "$PHP_MAINTSCRIPT_NAME" = 'postrm' ] || [ "$PHP_MAINTSCRIPT_NAME" = 'prerm' ] ; then
 			    if [ "$PHP_MAINTSCRIPT_METHOD" = "remove" ] ; then
-				/usr/local/lsws/lsphp83/bin/php$CMD -m -f -v "$VERSION" -s "$SAPI" -q "$MOD" || return 1
+				/usr/local/lsws/lsphp84/bin/php$CMD -m -f -v "$VERSION" -s "$SAPI" -q "$MOD" || return 1
 				php_msg "info" "php_invoke $PHP_MAINTSCRIPT_NAME: Disable module $MOD for $SAPI SAPI"
 				PHP_NEED_ACTION=1
 			    fi

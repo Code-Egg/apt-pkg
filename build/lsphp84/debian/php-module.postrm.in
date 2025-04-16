@@ -5,7 +5,7 @@
 #EXTRA#
 
 if [ "$1" = "purge" ]; then
-  inidir=/usr/local/lsws/lsphp83/etc/php/8.3/mods-available
+  inidir=/usr/local/lsws/lsphp84/etc/php/8.4/mods-available
   for dsoname in @modules@; do
     inifile=${dsoname}.ini
 
@@ -28,9 +28,9 @@ if [ "$1" = "purge" ]; then
       fi
     fi
   
-    if [ -e /usr/local/lsws/lsphp83/bin/php-maintscript-helper ] ; then
-      . /usr/local/lsws/lsphp83/bin/php-maintscript-helper
-      /usr/local/lsws/lsphp83/bin/phpdismod ALL ALL ${dsoname}
+    if [ -e /usr/local/lsws/lsphp84/bin/php-maintscript-helper ] ; then
+      . /usr/local/lsws/lsphp84/bin/php-maintscript-helper
+      /usr/local/lsws/lsphp84/bin/phpdismod ALL ALL ${dsoname}
     elif [ -e /usr/lib/php/php-maintscript-helper ] ; then
       . /usr/lib/php/php-maintscript-helper
       phpdismod ALL ALL ${dsoname}

@@ -1,7 +1,7 @@
 Package: @package@
 Architecture: any
-Depends: lsphp83-common,
-         lsphp83,
+Depends: lsphp84-common,
+         lsphp84,
          ucf,
          ${misc:Depends},
          ${php:Depends},

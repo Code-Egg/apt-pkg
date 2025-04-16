@@ -1,4 +1,4 @@
-Source: php8.3
+Source: php8.4
 Section: php
 Priority: optional
 Maintainer: Debian PHP Maintainers <pkg-php-maint@lists.alioth.debian.org>
@@ -72,11 +72,11 @@ Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-php/php.git
 Homepage: http://www.php.net/
 XS-Testsuite: autopkgtest
 
-Package: lsphp83
+Package: lsphp84
 Architecture: any
 Depends: libmagic1,
-         lsphp83-common (>= ${source:Version}),
-         lsphp83-opcache,
+         lsphp84-common (>= ${source:Version}),
+         lsphp84-opcache,
          tzdata,
          ucf,
          ${misc:Depends},
@@ -96,7 +96,7 @@ Description: server-side, HTML-embedded scripting language (LSAPI binary)
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-common
+Package: lsphp84-common
 Architecture: all
 Depends: ${misc:Depends}
 Suggests: php-user-cache
@@ -109,8 +109,8 @@ Description: Common files for packages built from the PHP source
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-dbg
-Depends: lsphp83 (= ${binary:Version}),
+Package: lsphp84-dbg
+Depends: lsphp84 (= ${binary:Version}),
          ${misc:Depends}
 Recommends: gdb
 Section: debug
@@ -124,13 +124,13 @@ Description: Debug symbols for LSPHP70
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-dev
+Package: lsphp84-dev
 Depends: autoconf ,
          automake ,
          libpcre3-dev,
          libssl-dev,
          libtool ,
-         lsphp83-common (>= ${source:Version}),
+         lsphp84-common (>= ${source:Version}),
          shtool,
          ${misc:Depends},
          ${perl:Depends}
@@ -145,9 +145,9 @@ Description: Files for PHP70 module development
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp83-modules-source
+Package: lsphp84-modules-source
 Architecture: all
-Depends: lsphp83-dev,
+Depends: lsphp84-dev,
          ${misc:Depends}
 Description: PHP 70 modules source package
  This package contains source for PHP 70 modules that can be

@@ -26,7 +26,7 @@ set -ue
 SCRIPT_NAME=${0##*/}
 QUIET=no
 
-. /usr/local/lsws/lsphp83/bin/php-helper
+. /usr/local/lsws/lsphp84/bin/php-helper
 
 usage() {
     [ -n "$@" ] && warning $@

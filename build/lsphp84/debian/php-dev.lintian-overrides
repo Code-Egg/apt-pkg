@@ -1,1 +1,1 @@
-lsphp83-dev: script-not-executable /usr/local/lsws/lsphp83/lib/php/build/run-tests.php
+lsphp84-dev: script-not-executable /usr/local/lsws/lsphp84/lib/php/build/run-tests.php

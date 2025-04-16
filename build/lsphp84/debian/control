@@ -42,7 +42,6 @@ Build-Depends: autoconf (>= 2.59),
                libpng-dev | libpng12-dev,
                libwebp-dev,
                libpq-dev,
-               libpspell-dev,
                libqdbm-dev,
                librecode-dev,
                libsasl2-dev,
@@ -256,22 +255,6 @@ Description: PostgreSQL module for PHP
  open source general-purpose scripting language that is especially suited
  for web development and can be embedded into HTML.
 
-Package: lsphp84-imap
-Architecture: any
-Depends: lsphp84-common,
-         ucf,
-         ${misc:Depends},
-         ${php:Depends},
-         ${shlibs:Depends}
-Pre-Depends: ${misc:Pre-Depends}
-Built-Using: ${php:Built-Using}
-Description: IMAP module for PHP
- This package provides a IMAP module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
-
 Package: lsphp84-mysql
 Architecture: any
 Depends: lsphp84-common,
@@ -299,22 +282,6 @@ Pre-Depends: ${misc:Pre-Depends}
 Built-Using: ${php:Built-Using}
 Description: tidy module for PHP
  This package provides a tidy module for PHP.
- .
- PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
- open source general-purpose scripting language that is especially suited
- for web development and can be embedded into HTML.
-
-Package: lsphp84-pspell
-Architecture: any
-Depends: lsphp84-common,
-         ucf,
-         ${misc:Depends},
-         ${php:Depends},
-         ${shlibs:Depends}
-Pre-Depends: ${misc:Pre-Depends}
-Built-Using: ${php:Built-Using}
-Description: pspell module for PHP
- This package provides a pspell module for PHP.
  .
  PHP (recursive acronym for PHP: Hypertext Preprocessor) is a widely-used
  open source general-purpose scripting language that is especially suited

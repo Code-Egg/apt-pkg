@@ -335,9 +335,6 @@ install: prepare-files-stamp
 	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/'
 	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/
     
-	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/'
-	ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/	
-
 	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/'
 	ls /usr/local/lsws/lsphp84/lib/php/
 

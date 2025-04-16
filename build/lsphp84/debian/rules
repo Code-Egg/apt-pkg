@@ -329,14 +329,14 @@ install: prepare-files-stamp
 
 	mkdir -p debian/tmp/$(LSPHP_INST_DIR)/src/
 	tar -cJf debian/tmp/$(LSPHP_INST_DIR)/src/$(PHP_MODULES_SOURCE).tar.xz ext/
-    echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDbug ext'
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDbug ext'
 	ls ext
 
-    echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/'
-    ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/'
+	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/
     
 	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/'
-    ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/	
+	ls debian/tmp/usr/local/lsws/lsphp84/include/php/20240924/	
 
 	# install extra CGI-BIN
 	install -d -m 755 debian/tmp/$(LSPHP_INST_DIR)/lib/cgi-bin/; \
@@ -397,7 +397,7 @@ install: prepare-files-stamp
 #	ln -sf /usr/share/aclocal/ltsugar.m4 debian/$(PHP_DEV)/$(LSPHP_INST_DIR)/share/aclocal/ltsugar.m4
 #	ln -sf /usr/share/aclocal/ltversion.m4 debian/$(PHP_DEV)/$(LSPHP_INST_DIR)/share/aclocal/ltversion.m4
 #	ln -sf /usr/share/aclocal/lt~obsolete.m4 debian/$(PHP_DEV)/$(LSPHP_INST_DIR)/share/aclocal/lt~obsolete.m4
-echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD2'
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD2'
 	dh_installman
 	dh_installcatalogs
 	dh_installcron
@@ -409,7 +409,7 @@ echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 	dh_installmenu
 	dh_installmime
 	dh_installmodules
-echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD3'	
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD3'	
 	dh_installlogcheck
 	dh_installlogrotate
 	dh_installpam
@@ -422,7 +422,7 @@ echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
 	dh_perl
 	dh_link
 	dh_compress -Xphp.ini
-echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD4'
+	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD4'
 	touch install-litespeed-stamp
 
 binary-arch:

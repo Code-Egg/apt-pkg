@@ -203,8 +203,10 @@ pbuild_packages(){
                   PHP_VERSION_DATE='20210902'
               elif [[ "${PHP_VERSION_NUMBER}" == '82' ]]; then
                   PHP_VERSION_DATE='20220829'
+              elif [[ "${PHP_VERSION_NUMBER}" == '83' ]]; then
+                  PHP_VERSION_DATE='20230831'                  
               elif [[ "${PHP_VERSION_NUMBER}" == '84' ]]; then
-                  PHP_VERSION_DATE='20250415'                  
+                  PHP_VERSION_DATE='20240924'                  
               fi
           fi          
           cp -a ${PRODUCT_DIR}${TAIL_EDGE}/debian $SOURCE_DIR/

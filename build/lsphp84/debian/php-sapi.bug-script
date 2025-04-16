@@ -12,7 +12,7 @@ echo "++++ LSPHP 8.4 Extensions (php8.4query -M -v): ++++" >&3
 echo "" >&3
 
 echo "++++ Configuration files: ++++" >&3
-"**** /usr/local/lsws/lsphp84/etc/php/8.3/litespeed/php.ini ****" >&3
+"**** /usr/local/lsws/lsphp84/etc/php/8.4/litespeed/php.ini ****" >&3
 grep -Ev "$MATCH" /usr/local/lsws/lsphp84/etc/php/8.4/litespeed/php.ini >&3
 echo "" >&3
 find /usr/local/lsws/lsphp84/etc/php/8.4/mods-available/ -name '*.ini' | \

@@ -3,7 +3,7 @@ php-defaults (16+nmu1) UNRELEASED; urgency=medium
   * Non-maintainer upload.
   * i
 
- -- lsadm <info@litespeedtech.com>  Wed, 16 Dec 2015 10:38.30 -0500
+ -- lsadm <info@litespeedtech.com>  Wed, 16 Dec 2015 10:38.40 -0500
 
 php-defaults (16) unstable; urgency=medium
 
@@ -82,7 +82,7 @@ php-defaults (4) unstable; urgency=medium
   * Add a mandatory /etc/php/mods-available directory
   * Purge /var/lib/php on php-common removal
 
- -- Ondřej Surý <ondrej@debian.org>  Wed, 29 Jul 2015 11:28.38 +0200
+ -- Ondřej Surý <ondrej@debian.org>  Wed, 29 Jul 2015 11:28.48 +0200
 
 php-defaults (3) unstable; urgency=medium
 

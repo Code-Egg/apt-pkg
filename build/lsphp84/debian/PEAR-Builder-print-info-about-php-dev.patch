@@ -1,5 +1,5 @@
 --- a/PEAR/Builder.php	2011-05-14 20:43:01.000000000 +0000
-+++ b/PEAR/Builder.php		2011-05-26 15:56:41.0964858.3 +0000
++++ b/PEAR/Builder.php		2011-05-26 15:56:41.0964858.4 +0000
 @@ -309,5 +309,7 @@ class PEAR_Builder extends PEAR_Common
          }
  

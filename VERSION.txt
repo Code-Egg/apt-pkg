@@ -5,5 +5,5 @@ ioncube=14.4.0
 msgpack=3.0.0
 memcached=3.2.0
 pear=1.10.15
-redis=6.0.2
+redis=6.2.0
 igbinary=3.2.16

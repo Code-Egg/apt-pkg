@@ -335,17 +335,10 @@ install: prepare-files-stamp
 	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/'
 	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/8.4/sapi/
     
-	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/'
-	ls /usr/local/lsws/lsphp84/lib/php/
-
 	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls debian/tmp/usr/local/lsws/lsphp84/lib/php/build/'
 	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/build/	
 
-	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/build/'
-	ls /usr/local/lsws/lsphp84/lib/php/build/	
-
-	echo 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD ls /usr/local/lsws/lsphp84/lib/php/build/'
-	ls /usr/local/lsws/lsphp84/lib/php/build/
+	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/
 
 	# install extra CGI-BIN
 	install -d -m 755 debian/tmp/$(LSPHP_INST_DIR)/lib/cgi-bin/; \

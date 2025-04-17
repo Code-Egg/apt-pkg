@@ -18,7 +18,7 @@ export PHP_PEAR_SYSCONF_DIR=/etc/pear
 PACKAGE_NAME      := pear
 PHP_VERSION       := 84
 PHP_DOT_VERSION   := 8.4
-PHP_DATE          := 20230841
+PHP_DATE          := 20240924
 PHP_DIR           := /usr/local/lsws/lsphp$(PHP_VERSION)
 BUILD_ROOT        := $(shell pwd)
 

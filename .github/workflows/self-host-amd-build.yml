@@ -69,4 +69,5 @@ jobs:
             bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64 dev yes
         env:
           version: ${{ inputs.version }}
-          revision: ${{ inputs.revision }}          
+          revision: ${{ inputs.revision }} 
+          BUILD_KEY: ${{ secrets.BUILD_KEY }}         

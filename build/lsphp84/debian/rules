@@ -372,6 +372,8 @@ install: prepare-files-stamp
 	#install -m 755 debian/tmp/usr/local/lsws/lsphp84/bin/php8.4 debian/tmp/usr/local/lsws/lsphp84/bin/php	
 
 	dh_install --list-missing
+	echo "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD"
+	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/20240924/
 	#dh_install	
 # shipping duplicate files from other packages is hell for security audits
 #	ln -sf /usr/share/misc/config.guess $(PHPIZE_BUILDDIR)/config.guess
@@ -410,6 +412,8 @@ install: prepare-files-stamp
 	dh_link
 	dh_compress -Xphp.ini
 	touch install-litespeed-stamp
+	echo "DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD2"
+	ls debian/tmp/usr/local/lsws/lsphp84/lib/php/20240924/
 
 binary-arch:
 	chmod 01733 debian/lsphp84-common/var/lib/lsphp84/sessions/

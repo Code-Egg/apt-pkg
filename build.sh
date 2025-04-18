@@ -33,8 +33,14 @@ fi
 
 if [ -z "${revision}" ]; then
     TMP_DIST=$(echo $dists | awk '{ print $1 }') ### Check first dist and use it as the revision number
-    revision=$(curl -isk https://${target_server}/debian/pool/main/$TMP_DIST/ | grep ${product}_${version} \
-      | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)
+    echo ${product} | grep '-' >/dev/null
+    if [ $? = 0 ]; then 
+        revision=$(curl -isk https://${target_server}/debian/pool/main/$TMP_DIST/ | grep ${product}_${version} \
+          | awk -F '-' '{print $3}' | awk -F '+' '{print $1}' | tail -1)
+    else
+        revision=$(curl -isk https://${target_server}/debian/pool/main/$TMP_DIST/ | grep ${product}_${version} \
+          | awk -F '-' '{print $4}' | awk -F '+' '{print $1}' | tail -1)      
+    fi      
     if [[ $revision == ?(-)+([[:digit:]]) ]]; then
         revision=$((revision+1))
     else

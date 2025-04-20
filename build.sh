@@ -1,5 +1,5 @@
 #!/bin/bash
-target_server='rpms.litespeedtech.club'
+target_server='repo-dev.litespeedtech.com'
 source ./functions.sh #2>/dev/null
 echo " Check if the user is root "
 if [ $(id -u) != "0" ]; then
@@ -11,8 +11,8 @@ PHP_V=84
 product=$1
 dists=$2
 input_archs=$3
-build_flag=$4
-release_flag=$5
+#build_flag=$4
+#release_flag=$5
 
 if [ -z "${version}" ]; then
     version="$(grep ${product}= VERSION.txt | awk -F '=' '{print $2}')"
@@ -75,10 +75,6 @@ for dist in $dists; do
     fi
 done
 
-if [[ "${build_flag}" = 'dev' ]] || [[ "${build_flag}" = 'prod' ]]; then
-    upload_to_server
-fi
-if [ "$release_flag" == 'yes' ]; then
-        sign_release
-fi
+upload_to_server
+
 echo $(date)

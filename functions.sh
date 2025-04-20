@@ -229,26 +229,18 @@ pbuild_packages(){
 
 upload_to_server(){
     cd $BUILD_DIR/build-result
-    if [[ "${build_flag}" = 'dev' ]] ; then
-        REP_LOC='/var/www/html-dev'
-    elif [[ "${build_flag}" = 'prod' ]] ; then
-        REP_LOC='/var/www/html'
-    else
-        echo "$REP_LOC is not found, skip!"
-    fi
-    if [[ "${build_flag}" = 'dev' ]] || [[ "${build_flag}" = 'prod' ]]; then
-        for dist in `echo $dists`; do
-            echo "Uploading pkg to ${build_flag} - distribution ${dist}"
-            eval `ssh-agent -s`
-            echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
-            scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ >/dev/null 2>&1
-        done
-    fi
-}
-
-sign_release(){
+    REP_LOC='/var/www/html'
     for dist in `echo $dists`; do
-        echo "Sign Release for distribution ${dist}"
-        ssh -oStrictHostKeyChecking=no root@rpms.litespeedtech.club -t "/var/www/gen_pkg_release.sh ${build_flag} ${dist}"
+        echo "Uploading pkg to ${build_flag} - distribution ${dist}"
+        eval `ssh-agent -s`
+        echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
+        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ >/dev/null 2>&1
     done
 }
+
+#sign_release(){
+#    for dist in `echo $dists`; do
+#        echo "Sign Release for distribution ${dist}"
+#        ssh -oStrictHostKeyChecking=no root@rpms.litespeedtech.com -t "/var/www/gen_pkg_release.sh ${build_flag} ${dist}"
+#    done
+#}

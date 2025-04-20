@@ -52,7 +52,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build with ${{ github.head_ref || github.ref_name }} branch
-        if: ${{ (github.ref == 'refs/heads/main') }}
+        #if: ${{ (github.ref == 'refs/heads/main') }}
         run: |
             cp /root/.pbuilderrc $HOME/
             bash build.sh ${{ matrix.package }} ${{ matrix.distro }} amd64

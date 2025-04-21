@@ -231,10 +231,10 @@ upload_to_server(){
     cd $BUILD_DIR/build-result
     REP_LOC='/var/www/html'
     for dist in `echo $dists`; do
-        echo "Uploading pkg to ${build_flag} - distribution ${dist}"
+        echo "Uploading pkg to dev - distribution ${dist}"
         eval `ssh-agent -s`
         echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
-        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ >/dev/null 2>&1
+        scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ #>/dev/null 2>&1
     done
 }
 

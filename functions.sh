@@ -11,8 +11,6 @@ check_input(){
     echo " Build revision is $revision "
     echo " Required archs are $archs "
     echo " Required dists are $dists "
-    echo " Build location is $build_flag"
-    echo " Sign release is $release_flag"
 }
 
 set_paras(){
@@ -65,12 +63,12 @@ set_build_dir(){
 prepare_source(){
     cd $BUILD_DIR
     case "$product" in
-    lsphp83)
+    lsphp84)
         source_url="http://us2.php.net/distributions/php-$version.tar.gz"
         wget $source_url
         tar xzf php-$version.tar.gz
 
-        source_folder_name=php8.3-$version
+        source_folder_name=php8.4-$version
         mv php-$version $source_folder_name
 
         SOURCE_DIR=$BUILD_DIR/$source_folder_name
@@ -92,7 +90,7 @@ prepare_source(){
 
         cd ..
         #prepare the patched source as orig.tar.xz file
-        tar -cJf php8.3_${version}.orig.tar.xz ${source_folder_name}
+        tar -cJf php8.4_${version}.orig.tar.xz ${source_folder_name}
         ;;
     lsphp${PHP_VERSION_NUMBER}-${PHP_EXTENSION})
         if [ ${PHP_EXTENSION} == 'ioncube' ] ; then
@@ -204,7 +202,9 @@ pbuild_packages(){
               elif [[ "${PHP_VERSION_NUMBER}" == '82' ]]; then
                   PHP_VERSION_DATE='20220829'
               elif [[ "${PHP_VERSION_NUMBER}" == '83' ]]; then
-                  PHP_VERSION_DATE='20230831'
+                  PHP_VERSION_DATE='20230831'                  
+              elif [[ "${PHP_VERSION_NUMBER}" == '84' ]]; then
+                  PHP_VERSION_DATE='20240924'                  
               fi
           fi          
           cp -a ${PRODUCT_DIR}${TAIL_EDGE}/debian $SOURCE_DIR/
@@ -222,31 +222,5 @@ pbuild_packages(){
           DIST=${dist} ARCH=${arch} pbuilder --update
           pdebuild --debbuildopts -j8 --architecture ${arch} --buildresult ../build-result/${dist} --pbuilderroot "sudo DIST=${dist} ARCH=${arch}" -- --hookdir $HOME
         done
-    done
-}
-
-upload_to_server(){
-    cd $BUILD_DIR/build-result
-    if [[ "${build_flag}" = 'dev' ]] ; then
-        REP_LOC='/var/www/html-dev'
-    elif [[ "${build_flag}" = 'prod' ]] ; then
-        REP_LOC='/var/www/html'
-    else
-        echo "$REP_LOC is not found, skip!"
-    fi
-    if [[ "${build_flag}" = 'dev' ]] || [[ "${build_flag}" = 'prod' ]]; then
-        for dist in `echo $dists`; do
-            echo "Uploading pkg to ${build_flag} - distribution ${dist}"
-            eval `ssh-agent -s`
-            echo "${BUILD_KEY}" | ssh-add - > /dev/null 2>&1
-            scp -oStrictHostKeyChecking=no $BUILD_DIR/build-result/${dist}/*.deb root@${target_server}:${REP_LOC}/debian/pool/main/${dist}/ >/dev/null 2>&1
-        done
-    fi
-}
-
-sign_release(){
-    for dist in `echo $dists`; do
-        echo "Sign Release for distribution ${dist}"
-        ssh -oStrictHostKeyChecking=no root@rpms.litespeedtech.club -t "/var/www/gen_pkg_release.sh ${build_flag} ${dist}"
     done
 }
